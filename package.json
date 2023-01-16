@@ -1,0 +1,24 @@
+{
+	"name": "yuxiaoyujun.github.io",
+	"version": "1.0.0",
+	"description": "",
+	"main": "bundle45f65c6db9.js",
+	"devDependencies": {
+		"css-loader": "^6.7.3",
+		"css-minimizer-webpack-plugin": "^4.2.2",
+		"html-webpack-plugin": "^5.5.0",
+		"mini-css-extract-plugin": "^2.7.2",
+		"sass": "^1.57.1",
+		"scss-loader": "^0.0.1",
+		"webpack": "^5.75.0",
+		"webpack-cli": "^5.0.1",
+		"webpack-dev-server": "^4.11.1"
+	},
+	"scripts": {
+		"dev": "webpack serve --config ./webpack.config.js",
+		"dist": "webpack --config ./webpack.config.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC"
+}
