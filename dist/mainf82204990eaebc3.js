@@ -44,6 +44,7 @@ const resume_profile_namespaceObject = __webpack_require__.p + "static/images/c0
 ;// CONCATENATED MODULE: ./main.js
 
 
+
 document.querySelector(".resume-profile-image img").src = resume_profile_namespaceObject;
 
 /******/ })()
