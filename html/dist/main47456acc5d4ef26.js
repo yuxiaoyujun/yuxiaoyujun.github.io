@@ -7975,12 +7975,14 @@ document.querySelector(".printImg").addEventListener("click", function () {
 	document.querySelector("#canvas-content").style.top = 0;
 	document.querySelector("#canvas-content").style.zIndex = 1;
 	document.querySelector("#hiddenProfile").style.display = "none";
+	location.href = "#";
 });
 document.querySelector(".printHandler").addEventListener("click", function () {
 	document.querySelector(".main-wrapper").style.display = "none";
 	document.querySelector("#canvas-content").style.top = 0;
 	document.querySelector("#canvas-content").style.zIndex = 1;
 	document.querySelector("#hiddenProfile").style.display = "none";
+	location.href = "#";
 });
 
 })();
