@@ -7970,6 +7970,18 @@ html2canvas_default()(document.querySelector("#capture")).then((canvas) => {
 document.querySelector("#saveImg").addEventListener("click", function () {
 	downloadIamge(imgUrl, "doc.png");
 });
+document.querySelector(".printImg").addEventListener("click", function () {
+	document.querySelector(".main-wrapper").style.display = "none";
+	document.querySelector("#canvas-content").style.top = 0;
+	document.querySelector("#canvas-content").style.zIndex = 1;
+	document.querySelector("#hiddenProfile").style.display = "none";
+});
+document.querySelector(".printHandler").addEventListener("click", function () {
+	document.querySelector(".main-wrapper").style.display = "none";
+	document.querySelector("#canvas-content").style.top = 0;
+	document.querySelector("#canvas-content").style.zIndex = 1;
+	document.querySelector("#hiddenProfile").style.display = "none";
+});
 
 })();
 
