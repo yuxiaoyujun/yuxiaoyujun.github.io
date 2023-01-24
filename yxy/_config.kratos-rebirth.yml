@@ -1,7 +1,10 @@
 site_logo: https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb
 avatarUri: https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb
-images:
-  banner: https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb
+
+customStyles:
+  images: # 图片相关设置
+    banner: /images/banner_dark.jpeg # 站点横幅
+    background: /images/bg.webp # 站点背景
 
 snow: true
 
@@ -82,6 +85,9 @@ friends:
     link: "https://candinya.com"
 
 posts:
+  show_cc: true
+  donate: true
+  share: true
   comments: 
     provider: gitalk
 
@@ -93,3 +99,9 @@ gitalk:
   # admin: 
   #   - 'Candinya'
   # distractionFreeMode: false
+
+jsconfig:
+  main:
+    cover: 1
+    expire_day: 1
+    siteLeaveEvent: true

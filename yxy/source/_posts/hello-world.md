@@ -3,12 +3,13 @@ title: 色彩构成入门
 date: 2022-01-23 04:57:38
 tags:
 categories:
-  - kkkkk
+  - 绘画
 ---
+  <meta name="referrer" content="no-referrer">
 
 ## 思维导图
 
-![色彩构成.png](https://upload-images.jianshu.io/upload_images/20892169-52e84d1dcfa1f297.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/20892169-52e84d1dcfa1f297.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## [](https://shuzang.github.io/2020/basic-knowledge-of-colorology/#1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5)1\. 基本概念
 
