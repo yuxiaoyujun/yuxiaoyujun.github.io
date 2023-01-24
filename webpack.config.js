@@ -7,7 +7,7 @@ module.exports = {
 	mode: "production",
 	entry: "./main.js", // 相对路径
 	output: {
-		path: path.resolve(__dirname, "dist/"), //所有文件的输出路径，绝对路径
+		path: path.resolve(__dirname, "doc/"), //所有文件的输出路径，绝对路径
 		// __dirname: nodejs的变量，代表当前文件的文件夹目录
 		filename: "main[hash:15].js", //打包入口文件js的文件名，所以如果指定了js/xxx.js，那么入口js文件都会被打包到js目录下
 		clean: true
