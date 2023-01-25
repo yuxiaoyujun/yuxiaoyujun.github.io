@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: '域小鱼在生气'
-subtitle: 随意写些文章的地方
-description: '自嗨中，不要看我，我会不要意思'
+title: '域小鱼'
+subtitle: 随意写些奇奇怪怪东西的地方
+description: '域小鱼爱自洽，都是自己无聊的碎碎念<br>所以不要看我，我会不好意思'
 keywords:
-author: John Doe
-language: en
+author: xue bai
+language: ch
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://yuxiaoyujun.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
