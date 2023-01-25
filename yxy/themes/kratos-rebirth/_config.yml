@@ -206,8 +206,8 @@ jsconfig:
     createTime: "2019/05/06 17:03:12"
     donateBtn: "支持我~"
     scanNotice: "扫一扫，好不好？"
-    qr_alipay: "/images/alipayqr.webp"
-    qr_wechat: "/images/wechatpayqr.webp"
+    qr_alipay: "/images/alipay_qr.jpg"
+    qr_wechat: "/images/wechat_qr.jpg"
     siteLeaveEvent: false
     leaveTitle: "{{{(>_<)}}}哦哟，崩溃啦~"
     returnTitle: "(*´∇｀*)欸，又好啦~"
