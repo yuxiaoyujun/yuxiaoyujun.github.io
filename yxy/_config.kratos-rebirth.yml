@@ -110,4 +110,4 @@ jsconfig:
   main:
     cover: 1
     expire_day: 1
-    siteLeaveEvent: true
+    siteLeaveEvent: false
