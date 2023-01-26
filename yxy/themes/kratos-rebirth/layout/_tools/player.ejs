@@ -12,20 +12,37 @@
     <div id="aplayer"></div>
     <script>
     $(() => {
-        $.ajax({
-            type:"get",
-            url:"<%= theme.aplayer.playlist %>",
-            dataType:"json",
-            success: function(data){
-                new APlayer({
-                    container: document.getElementById('aplayer'),
-                    fixed: true,
-                    order: '<%= theme.aplayer.order %>',
-                    lrcType: 3,
-                    audio: data
-                });
-            }
+        let music = "<%= theme.aplayer.playlist %>"
+        let musicList = [{
+            name: '恋愛サーキュレーション',
+            artist: '花澤香菜',
+            url: music,
+            cover: "<%= theme.aplayer.cover %>",
+            lrc: "<%= theme.aplayer.lrc %>",
+            theme: '#ebd0c2'
+        }]
+        new APlayer({            
+            fixed: true,
+            container: document.getElementById('aplayer'),
+            order: '<%= theme.aplayer.order %>',
+            lrcType: 3,
+            audio: musicList
+            // audio: data
         });
+        // $.ajax({
+        //     type:"get",
+        //     url:"<%= theme.aplayer.playlist %>",
+        //     dataType:"json",
+        //     success: function(data){
+        //         new APlayer({
+        //             container: document.getElementById('aplayer'),
+        //             fixed: true,
+        //             order: '<%= theme.aplayer.order %>',
+        //             lrcType: 3,
+        //             audio: data
+        //         });
+        //     }
+        // });
     });
     </script>
 <% } %>

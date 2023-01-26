@@ -164,12 +164,22 @@ livere:
 # APlayer 左下角音乐播放器
 aplayer:
   enabled: true
-  playlist: 
-  meting:
-    server: netease
-    type: playlist
-    id: 3204190542
+  playlist: /music/laxh.mp3
+  autoplay: true
+  cover: /images/laxh.jpeg
+  lrc: /music/laxh.lrc
+  # 总报跨域，就注释掉了
+  # meting:
+  #   server: netease
+  #   type: playlist
+  #   id: 3204190542
   order: random
+  data:   
+  - name: "恋愛サーキュレーション"
+    artist: "花澤香菜"
+    cover: /images/laxh.jpeg
+    lrc: /music/laxh.lrc
+    theme: "#ebd0c2"
 
 # Widgets 侧边栏小挂件
 sidebar: right

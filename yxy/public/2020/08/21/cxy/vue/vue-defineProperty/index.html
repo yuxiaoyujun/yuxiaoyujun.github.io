@@ -3,7 +3,7 @@
     <head>
   <!-- 元数据 -->
   <meta charset="utf-8">
-  <link rel="icon" href="https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
+  <link rel="icon" href="/images/logo.png">
   
   <title>【vue】vue2和vue3分别实现数据侦听 | 域小鱼的私人空间</title>
   <meta name="author" content="xue bai" />
@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="域小鱼的私人空间">
 <meta property="og:description" content="Object.defineProperty(obj, prop, descriptor)在js原生对象中，实现数据侦听的方法就是defineProperty。 使用示例如下：12345678910111213141516var obj &#x3D; new Object();var value;Object.defineProperty(obj,&amp;#x27;name&amp;#x27;,&amp;#123;    ge">
 <meta property="og:locale">
-<meta property="og:image" content="https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
+<meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
 <meta property="article:published_time" content="2020-08-21T10:16:25.000Z">
 <meta property="article:modified_time" content="2023-01-25T16:22:02.349Z">
 <meta property="article:author" content="xue bai">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ga.candinya.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
+<meta name="twitter:image" content="https://yuxiaoyujun.github.io/images/logo.png">
   
   <!-- 站点验证相关 -->
   
@@ -50,7 +50,7 @@
   <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
   
   
-    <link rel="stylesheet" href="/vendors/aplayer@1.10.1/dist/APlayer.min.css"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"></script>
   
   
     <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
@@ -760,15 +760,42 @@ Object.defineProperty(obj, prop, descriptor)在js原生对象中，实现数据�
 
     <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
-    <script defer src="/vendors/meting@2.0.1/dist/Meting.min.js"></script>
-    <meting-js
-        server="netease"
-        type="playlist"
-        id="3204190542"
-        order="random"
-        fixed="true"
-    >
-    </meting-js>
+    <div id="aplayer"></div>
+    <script>
+    $(() => {
+        let music = "/music/laxh.mp3"
+        let musicList = [{
+            name: '恋愛サーキュレーション',
+            artist: '花澤香菜',
+            url: music,
+            cover: "/images/laxh.jpeg",
+            lrc: "/music/laxh.lrc",
+            theme: '#ebd0c2'
+        }]
+        new APlayer({            
+            fixed: true,
+            container: document.getElementById('aplayer'),
+            order: 'random',
+            lrcType: 3,
+            audio: musicList
+            // audio: data
+        });
+        // $.ajax({
+        //     type:"get",
+        //     url:"/music/laxh.mp3",
+        //     dataType:"json",
+        //     success: function(data){
+        //         new APlayer({
+        //             container: document.getElementById('aplayer'),
+        //             fixed: true,
+        //             order: 'random',
+        //             lrcType: 3,
+        //             audio: data
+        //         });
+        //     }
+        // });
+    });
+    </script>
 
 
 
