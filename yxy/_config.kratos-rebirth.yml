@@ -81,7 +81,7 @@ friends:
   - name: "chatGpt"
     bio: "ChatGPT是由OpenAI开发的一个人工智能聊天机器人程序，于2022年11月推出。该程序使用基于GPT-3.5架构的大型语言模型并通过强化学习进行训练。"
     avatar: "../images/avatar.webp"
-    link: "https://blog.csdn.net/wrangler_csdn/article/details/128216319"
+    link: "https://chat.openai.com/auth/login"
   - name: "喵了个咪"
     bio: "喵喵~"
     avatar: "../images/avatar.webp"

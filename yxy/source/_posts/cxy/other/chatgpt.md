@@ -1,7 +1,7 @@
 ---
 title: ChatGPT初探
 date: 2023-01-27 14:10:51
-tags: ChatGPT
+tags: 实用开源代码or工具
 categories: 
   - [程序员的自我修养]
   - [生活]

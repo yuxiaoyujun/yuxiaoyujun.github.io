@@ -1,7 +1,7 @@
 ---
 title: '在github pages中集成Gitalk功能'
 date: 2019-12-11 18:48:34
-tags: gitalk
+tags: 实用开源代码
 categories:
   - 程序员的自我修养
 ---

@@ -1,7 +1,7 @@
 ---
 title: '【github】使用my-json-server建立线上测试api库'
 date: 2021-11-27 22:21:49
-tags: api
+tags: 实用开源代码or工具
 categories:
   - 程序员的自我修养
 ---

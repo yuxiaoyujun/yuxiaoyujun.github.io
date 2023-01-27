@@ -1,7 +1,7 @@
 ---
 title: '【github】私有仓库如何避免每次pull都要输入用户名密码'
-date: 2022-12-25 06:21:49
-tags: 
+date: 2021-05-15 06:21:49
+tags: github
 categories:
   - 程序员的自我修养
 ---
