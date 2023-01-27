@@ -15,7 +15,7 @@ topMenu:
   - label: 归档
     icon: file
     url: /archives/
-  - label: 友链
+  - label: 链接
     icon: paw
     url: /friends/
   - label: 其他
@@ -78,14 +78,14 @@ vendors:
 
 friends:
   list:
-  - name: "别看了"
-    bio: "喵~"
+  - name: "chatGpt"
+    bio: "ChatGPT是由OpenAI开发的一个人工智能聊天机器人程序，于2022年11月推出。该程序使用基于GPT-3.5架构的大型语言模型并通过强化学习进行训练。"
     avatar: "../images/avatar.webp"
-    link: "https://bbdcsg.love/"
-  - name: "好友位"
+    link: "https://blog.csdn.net/wrangler_csdn/article/details/128216319"
+  - name: "喵了个咪"
     bio: "喵喵~"
     avatar: "../images/avatar.webp"
-    link: "https://bbdcsg.love/"
+    link: "https://chatgpt.sbaliyun.com/"
   - name: "好友位"
     bio: "咪啪~"
     avatar: "../images/avatar.webp"
