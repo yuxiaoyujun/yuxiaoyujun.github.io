@@ -5,11 +5,14 @@ const path = require("path");
 
 module.exports = {
 	mode: "production",
-	entry: "./main.js", // 相对路径
+	entry: {
+		main: "./main.js",
+		ws: "./resume/websocket/ws.js"
+	}, // 相对路径
 	output: {
-		path: path.resolve(__dirname, "docs/"), //所有文件的输出路径，绝对路径
+		path: path.resolve(__dirname, "dist/"), //所有文件的输出路径，绝对路径
 		// __dirname: nodejs的变量，代表当前文件的文件夹目录
-		filename: "main[hash:15].js", //打包入口文件js的文件名，所以如果指定了js/xxx.js，那么入口js文件都会被打包到js目录下
+		filename: "[name][hash:15].js", //打包入口文件js的文件名，所以如果指定了js/xxx.js，那么入口js文件都会被打包到js目录下
 		clean: true
 		// 自动清空上次打包的内容
 		// 原理：在打包前，将path整个目录清空，在进行打包输出
@@ -47,7 +50,15 @@ module.exports = {
 	plugins: [
 		new MiniCssExtractPlugin(),
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, "index.html")
+			filename: "index.html", //生成html文件的文件名，默认是index.html
+			template: path.resolve(__dirname, "index.html"), //本地html文件模板的地址
+			chunks: ["main"] //需要引入的js文件名称
+		}),
+		new HtmlWebpackPlugin({
+			//输出html文件2
+			filename: "websocket.html", //生成html文件的文件名，默认是index.html
+			template: path.resolve(__dirname, "websocket.html"), //本地html文件模板的地址
+			chunks: ["ws"] //需要引入的js文件名称
 		})
 	],
 	devServer: {

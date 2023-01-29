@@ -127,7 +127,7 @@
 										熟悉前端编译构建工具webpack，能配合babel、eslint等工具，熟练的搭建和优化构建环境。
 									</li>
 									<li>
-										能够使用react进行日常开发，了解 react 语法及react
+										能够使用react进行开发，了解 react 语法及react
 										hook、redux、react-router基本使用。
 									</li>
 									<li>
@@ -135,8 +135,7 @@
 										、uni-app多端开发使用经验。
 									</li>
 									<li>
-										熟悉使用Git版本控制，Charles抓包，掌握Linux
-										Shell基本命令。了解Http协议、Jenkins。
+										熟悉使用Git版本控制，Charles抓包，了解Http协议、Jenkins、Nginx基本配置。
 									</li>
 								</p>
 							</div>
@@ -193,11 +192,12 @@
 													web⻚面开发。
 												</li>
 												<li>
-													封装 bridge 库，用于与客户端交互，功能包括客户端代发
-													ajax 请求、调起分享面板等。
+													<b>封装 bridge 库</b
+													>，用于与客户端交互，功能包括客户端代发 ajax
+													请求、调起分享面板等。
 												</li>
 												<li>
-													工作中发现团队开发模板混乱，在多人开发相同项目时，总是产生npm包版本不统一、代码书写不规范等问题，有时候仅仅因为版本不统一的报错问题会延误一天的开发，于是推进了一个统一的开发脚手架，包括prettier、eslint去优化代码，使用package.json.lock去统一大家的开发版本一致。
+													工作中发现团队开发模板混乱，在多人开发相同项目时，总是产生npm包版本不统一、代码书写不规范等问题，有时候仅仅因为版本不统一的报错问题会延误一天的开发，于是推进了一个<b>统一的开发脚手架</b>，包括prettier、eslint去优化代码，使用package.json.lock去统一大家的开发版本一致。
 												</li>
 											</ul>
 										</div>
@@ -255,7 +255,7 @@
 										<div class="item-heading row align-items-center mb-2">
 											<h3
 												class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
-												1.客户端内嵌web页版本更新、年度盛典等大型活动、h5外站回流等
+												1.客户端内嵌web页版本更新、年度盛典、惊喜夜等大型活动、h5外站回流等
 											</h3>
 										</div>
 										<div class="item-content">
@@ -266,7 +266,7 @@
 													参与大型运营活动的前端开发，如：陌陌年度盛典、直播间红包等（场均直播同时在线人数300万+），能及时响应及解决直播中问题。
 												</li>
 												<li>
-													使用websocket进行页面实时通信，并封装webcocket通信组件。
+													使用websocket进行页面实时通信，并封装webcocket通信组件，在活动中用长连接实现了积分、排名实时通讯并更新的功能。
 												</li>
 												<li>
 													使用js、css制作简单动画，使用bodymovin实现年度报告等较复杂的动画。
@@ -296,8 +296,6 @@
 												<li>
 													推进使用prettier统一组内成员代码格式，提高开发效率。
 												</li>
-												<li>页面性能检测系统</li>
-												<!-- https://www.oneapm.com/bi/feature.html -->
 											</ul>
 										</div>
 									</div>
@@ -317,8 +315,9 @@
 												<li>
 													使用了echarts、highcharts做可视化的图表，监控上行带宽、下行带宽，推拉流的配置等。使用了lodash等库操作数据。
 												</li>
+												<!--https://blog.csdn.net/qq_34784833/article/details/109462425-->
 												<li>
-													由于项目越来越大，加载越来越慢，所以根据功能使用webpack拆分出多入口的页面配置，使用codesplit拆分和整合了代码。
+													由于项目越来越大，加载越来越慢，所以根据功能使用webpack拆分出多入口多html页面的配置，使用codesplit拆分和整合了代码。
 												</li>
 												<!-- https://www.oneapm.com/bi/feature.html -->
 											</ul>
@@ -328,19 +327,22 @@
 										<div class="item-heading row align-items-center mb-2">
 											<h3
 												class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
-												4.公司内部任务管理系统
+												4. 直播间红包和活动红包
 											</h3>
 										</div>
 										<div class="item-content">
 											<ul class="resume-list">
 												<li>
-													基于vue2、vuex、vue-router搭建并开发了公司内部的视频直播cdn监控系统的前端部分，
+													使用vue开发了直播间红包的功能，包括多种红包类型、分享红包、并一直负责线上维护的工作。
 												</li>
-												<li>使用了ElementUI作样式基础</li>
 												<li>
-													实现了任务管理、任务状态更新、提醒、可视化等功能。
+													和客户端约定jsbridge通信规则，通知客户端回调弹框、分享等功能
 												</li>
-												<!-- https://www.oneapm.com/bi/feature.html -->
+												<!-- https://www.kancloud.cn/freya001/super-js/1738511 --->
+												<li>
+													为了匹配活动红包的不同要求，开发了运营动态配置红包的功能
+												</li>
+												<!-- 需求我早就忘了。。以后要把每一个做过的需求都记在文档里 -->
 											</ul>
 										</div>
 									</div>
@@ -367,6 +369,18 @@
 									<h2 class="text-uppercase resume-section-heading mb-4">
 										其他项目（兼职）
 									</h2>
+									<ul class="resume-list">
+										<li>
+											因眼病在家修养和调理，期间主要接兼职项目，选择了两个比较正式的项目列出。
+										</li>
+										<li>
+											在眼病修养期间，持续学习和保持对技术的好奇心，关注行业动态，利用这段时间思考了自己的职业和人生。
+										</li>
+										<li>
+											学习了绘画基础、设计和建模的相关知识，接过小项目（接过兼职），和相关同事的交流更加迅速。
+										</li>
+										<!-- b站稿子、雪容融、表情包设计、建筑类建模的uv调整、个人博客、个人简历的设计 -->
+									</ul>
 									<div class="item mb-3">
 										<div class="item-heading row align-items-center mb-2">
 											<h3
@@ -439,7 +453,7 @@
 									<div class="item">
 										<h3 class="item-title">其他</h3>
 										<ul class="list-unstyled resume-skills-list">
-											<li class="mb-2">Ps/Ai/An/Pr/Ae</li>
+											<li class="mb-2">Ps/Ai/Pr/Ae</li>
 											<li class="mb-2">Blender/ZBrush</li>
 										</ul>
 									</div>
@@ -492,19 +506,19 @@
 									class="resume-link"
 									href="github.com/yuxiaoyujun"
 									><span class="d-none d-lg-inline-block text-muted"
-										>github.com/yuxiaoyujun</span
+										>@github</span
 									></a
 								>
 							</li>
 							<li class="list-inline-item mb-lg-0 me-lg-3">
 								<a
 									class="resume-link"
-									href="https://www.jianshu.com/u/006751bcf229"
+									href="bbdcsg.love"
 									><i
 										class="fab fa-twitter-square fa-2x me-2"
 										data-fa-transform="down-4"></i
 									><span class="d-none d-lg-inline-block text-muted"
-										>@域小鱼</span
+										>@个人页面</span
 									></a
 								>
 							</li>
@@ -518,7 +532,7 @@
 										class="fab fa-twitter-square fa-2x me-2"
 										data-fa-transform="down-4"></i
 									><span class="d-none d-lg-inline-block text-muted"
-										>便捷打印</span
+										>转换打印</span
 									></a
 								>
 							</li>
