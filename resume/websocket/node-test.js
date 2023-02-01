@@ -6,36 +6,28 @@ wsServer.on("connection", (ws) => {
 	});
 });
 
-// // 实现接口
-// const ws = new WebSocket("ws://127.0.0.1:8080");
+// node端
+const WebSocket = require("ws");
+// 创建websocket服务器
+const wss = new WebSocket.Server({ port: 8080 });
+// 监听客户端连接
+wss.on("connection", (ws) => {
+	// 向客户端发送请求
+	ws.send(
+		JSON.stringify({
+			type: "request",
+			data: "hello world"
+		})
+	);
+});
 
-// ws.onopen = () => {
-// 	console.log("WebSocket connected!");
-// };
+// 浏览器端
+const ws = new WebSocket("ws://localhost:8080");
 
-// ws.onmessage = (evt) => {
-// 	console.log("Received message:", evt.data);
-// };
-
-// ws.onclose = () => {
-// 	console.log("WebSocket closed!");
-// };
-
-// // 封装接口
-// const WebSocketWrapper = {
-// 	sendMessage: (message) => {
-// 		ws.send(message);
-// 	},
-
-// 	setOnMessageCallback: (callback) => {
-// 		ws.onmessage = (evt) => {
-// 			callback(evt.data);
-// 		};
-// 	}
-// };
-
-// // 使用封装的接口
-// WebSocketWrapper.sendMessage("Hello World!");
-// WebSocketWrapper.setOnMessageCallback((message) => {
-// 	console.log("Received message:", message);
-// });
+// 监听服务器发送的消息
+ws.onmessage = (event) => {
+	const data = JSON.parse(event.data);
+	if (data.type === "request") {
+		console.log(data.data); // hello world
+	}
+};
