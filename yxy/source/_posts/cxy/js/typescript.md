@@ -80,7 +80,7 @@ function warnUser(): void {
 }
 ```
 void变量没有什么作用，因为void变量只能赋值null或undefined。
-###7. 类型断言
+### 7. 类型断言
 我可能有时候比ts更了解这个变量是什么类型，这时就可以用类型断言
 语法有两种
 第一种：**尖括号**
@@ -120,7 +120,7 @@ let labelObj: LabelType {
     }
 }
 ```
-###2. 函数类型
+### 2. 函数类型
 ```javascript
 interface Square{
   (source: string,subString: string):boolean

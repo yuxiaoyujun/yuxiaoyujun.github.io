@@ -1,6 +1,6 @@
 ---
 title: 'bodymovin使用'
-date: 2023-08-11 18:48:34
+date: 2021-08-11 18:48:34
 tags: '实用开源代码or工具'
 categories:
   - 程序员的自我修养

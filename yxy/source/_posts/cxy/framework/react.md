@@ -7,6 +7,11 @@ categories:
 ---
   <meta name="referrer" content="no-referrer">
 
+
+## 思维导图
+
+![](https://upload-images.jianshu.io/upload_images/20892169-c7559513f639bb9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ## 一、jsx
 ### jsx中使用js表达式
 在jsx中js表达式是用`{}`括起来的，和vue一样。可以调用的有
@@ -91,6 +96,7 @@ function App() {
 3. jsx属性名采用驼峰命名法，如
 `class->className`
 `for->htmlfor`
+
 ## 二、组件
 ### 1. 函数组件
 + 组件名称必须首字母大写
