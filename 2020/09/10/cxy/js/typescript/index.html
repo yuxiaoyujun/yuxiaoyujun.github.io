@@ -25,7 +25,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
 <meta property="article:published_time" content="2020-09-10T07:20:18.000Z">
-<meta property="article:modified_time" content="2023-02-01T11:19:41.189Z">
+<meta property="article:modified_time" content="2023-02-07T11:15:41.393Z">
 <meta property="article:author" content="xue bai">
 <meta property="article:tag" content="typescript">
 <meta name="twitter:card" content="summary">
@@ -228,7 +228,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~9.71K
+                        ~9.70K
                     
                     字
                 </li>
@@ -239,7 +239,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1675250381189"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1675768541393"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -261,7 +261,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">n</span>: never</span><br><span class="line"><span class="keyword">let</span> <span class="attr">num</span>: number = <span class="number">1</span> <span class="comment">// 报错</span></span><br><span class="line">n = num <span class="comment">// 报错</span></span><br><span class="line">num = n <span class="comment">// ok</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回never的函数必须存在无法达到的终点</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">error</span>(<span class="params">message: string</span>): never &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(message);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 推断的返回值类型为never</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fail</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">error</span>(<span class="string">&quot;Something failed&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 返回never的函数必须存在无法达到的终点</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">infiniteLoop</span>(<span class="params"></span>): never &#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="6-void"><a href="#6-void" class="headerlink" title="6. void"></a>6. void</h3><p>void表示没有任何类型。和any完全相反。函数没有返回值时可以写void</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">warnUser</span>(<span class="params"></span>): <span class="keyword">void</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;This is my warning message&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>void变量没有什么作用，因为void变量只能赋值null或undefined。<br>###7. 类型断言<br>我可能有时候比ts更了解这个变量是什么类型，这时就可以用类型断言<br>语法有两种<br>第一种：<strong>尖括号</strong></p>
+<p>void变量没有什么作用，因为void变量只能赋值null或undefined。</p>
+<h3 id="7-类型断言"><a href="#7-类型断言" class="headerlink" title="7. 类型断言"></a>7. 类型断言</h3><p>我可能有时候比ts更了解这个变量是什么类型，这时就可以用类型断言<br>语法有两种<br>第一种：<strong>尖括号</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">someValue</span>: any = <span class="string">&quot;this is a string&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">strLength</span>: number =(&lt;string&gt;someValue).<span class="property">length</span>;</span><br></pre></td></tr></table></figure>
 <p>第二种：<strong>as</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">someValue</span>: any = <span class="string">&quot;this is a string&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> strLength = (someValue <span class="keyword">as</span> number).<span class="property">length</span></span><br></pre></td></tr></table></figure>
@@ -270,8 +271,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">interface <span class="title class_">LabelType</span> &#123;</span><br><span class="line">  <span class="attr">label</span>: string,</span><br><span class="line">  name?: string, <span class="comment">// name可选</span></span><br><span class="line">  <span class="attr">id</span>: string|number,</span><br><span class="line">  readonly <span class="attr">size</span>: number, <span class="comment">// 只读</span></span><br><span class="line">  [<span class="attr">propName</span>: string]: any, <span class="comment">// 表示接口还可以有其他的属性，且属性名字任意，类型any</span></span><br><span class="line">  <span class="title function_">fn</span>(<span class="attr">arg1</span>: string): string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">labelObj</span>: <span class="title class_">LabelType</span> &#123;</span><br><span class="line">    <span class="attr">label</span>: <span class="string">&#x27;标签1&#x27;</span>,</span><br><span class="line">    <span class="attr">size</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="attr">aaa</span>: <span class="number">32482093840</span>, <span class="comment">// [propName: string]: any;</span></span><br><span class="line">    <span class="attr">bbb</span>: <span class="string">&#x27;whatever&#x27;</span>,   <span class="comment">// [propName: string]: any;</span></span><br><span class="line">    <span class="title function_">fn</span>(<span class="params">a</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;a&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###2. 函数类型</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface <span class="title class_">Square</span>&#123;</span><br><span class="line">  (<span class="attr">source</span>: string,<span class="attr">subString</span>: string):boolean</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-函数类型"><a href="#2-函数类型" class="headerlink" title="2. 函数类型"></a>2. 函数类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface <span class="title class_">Square</span>&#123;</span><br><span class="line">  (<span class="attr">source</span>: string,<span class="attr">subString</span>: string):boolean</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面代码意思是，一个函数类型叫Square，它应该有两个参数，一个source类型string，一个subString类型string，返回boolean类型的值。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">sq</span>: <span class="title class_">Square</span> = <span class="keyword">function</span>(<span class="params">source: string,subString: string</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3-类类型"><a href="#3-类类型" class="headerlink" title="3. 类类型"></a>3. 类类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">interface <span class="title class_">ClockInterface</span> &#123;</span><br><span class="line">  <span class="attr">currentTime</span>: <span class="title class_">Date</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span> implements <span class="title class_">ClockInterface</span> &#123;</span><br><span class="line">  <span class="attr">currentTime</span>: <span class="title class_">Date</span> = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -430,7 +430,7 @@
                     <a class="tag-none-link" href="/tags/typescript/" rel="tag">typescript</a>
                 </div>
                 <div class="pull-date">
-                    <!-- <time datetime="2023-02-01T11:19:41.189Z" itemprop="dateModified">最后编辑：2023-02-01</time> -->
+                    <!-- <time datetime="2023-02-07T11:15:41.393Z" itemprop="dateModified">最后编辑：2023-02-07</time> -->
                 </div>
             </div>
         </footer>
@@ -885,6 +885,18 @@
         //     }
         // });
     });
+    // 添加禁止复制的功能（代码复制功能保留了），只有我本地可以复制
+    // 禁止右键菜单
+    if (document.domain === "bbdcsg.love") {
+        document.oncontextmenu = function(){ return false; };
+        // 禁止文字选择
+        document.onselectstart = function(){ return false; };
+        // 禁止复制
+        document.oncopy = function(){ return false; };
+        // 禁止剪切
+        document.oncut = function(){ return false; };
+    }
+
     </script>
 
 
