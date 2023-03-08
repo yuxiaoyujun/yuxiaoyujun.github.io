@@ -25,7 +25,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
 <meta property="article:published_time" content="2023-02-27T10:16:25.000Z">
-<meta property="article:modified_time" content="2023-03-07T14:24:46.970Z">
+<meta property="article:modified_time" content="2023-03-08T11:13:36.533Z">
 <meta property="article:author" content="xue bai">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -239,7 +239,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1678199086970"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1678274016533"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -288,8 +288,9 @@
 <h4 id="2-如何选择？"><a href="#2-如何选择？" class="headerlink" title="2. 如何选择？"></a>2. 如何选择？</h4><ul>
 <li>最好不要共用Options API和Compositions API</li>
 <li>小型项目就用Options API，逻辑复杂用Composition API</li>
-<li>Compositon API 就像 Hooks在React<h2 id="三、-组合式api"><a href="#三、-组合式api" class="headerlink" title="三、 组合式api"></a>三、 组合式api</h2><h3 id="1-ref"><a href="#1-ref" class="headerlink" title="1. ref"></a>1. ref</h3>ref用来定义<strong>基本数据类型</strong>的响应式。</li>
+<li>Compositon API 就像 Hooks在React</li>
 </ul>
+<h2 id="三、-组合式api"><a href="#三、-组合式api" class="headerlink" title="三、 组合式api"></a>三、 组合式api</h2><h3 id="1-ref"><a href="#1-ref" class="headerlink" title="1. ref"></a>1. ref</h3><p>ref用来定义<strong>基本数据类型</strong>的响应式。</p>
 <p><em>备注：ref也可以用来定义对象或数组类型数据，它内部会自动通过 reactive 转为代理对象。</em></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> aaa = <span class="title function_">ref</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: &#123;</span><br><span class="line">    <span class="attr">age</span>: <span class="number">12</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">13333</span>,</span><br><span class="line">  <span class="attr">items</span>: [&#123;</span><br><span class="line">    <span class="attr">id</span>:<span class="number">2</span>,</span><br><span class="line">    <span class="attr">sex</span>:<span class="string">&#x27;f&#x27;</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">changeName</span>(<span class="params"></span>)&#123;</span><br><span class="line">  aaa.<span class="property">value</span>.<span class="property">items</span>[<span class="number">0</span>].<span class="property">id</span>++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;greetings&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">   <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; aaa.items[0].id &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;btn&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;changeName()&quot;</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
@@ -466,7 +467,7 @@ Vue3支持2的大多数写法
                     <a class="tag-none-link" href="/tags/vue/" rel="tag">vue</a>
                 </div>
                 <div class="pull-date">
-                    <!-- <time datetime="2023-03-07T14:24:46.970Z" itemprop="dateModified">最后编辑：2023-03-07</time> -->
+                    <!-- <time datetime="2023-03-08T11:13:36.533Z" itemprop="dateModified">最后编辑：2023-03-08</time> -->
                 </div>
             </div>
         </footer>
