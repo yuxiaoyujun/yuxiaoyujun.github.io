@@ -1,5 +1,5 @@
 ---
-title: '事件捕获与冒泡相关'
+title: '【第6章】事件捕获与冒泡相关'
 date: 2019-04-10 12:13:35
 tags: js
 categories:

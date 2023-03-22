@@ -42,8 +42,12 @@ filename_case: 0
 render_drafts: false
 
 # 每次新建一篇文章，hexo同时会创建一个与文章名同名的文件夹，用来放图片。
-post_asset_folder: true
-relative_link: false
+# 实测是有问题的，官网下面留言也报了问题，但没人修，暂时别用了。 https://hexo.io/zh-cn/docs/asset-folders.html
+# post_asset_folder: true
+# marked:
+#   prependRoot: true
+#   postAsset: true
+
 future: true
 highlight:
   enable: true
