@@ -25,7 +25,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
 <meta property="article:published_time" content="2023-03-21T02:56:21.000Z">
-<meta property="article:modified_time" content="2023-03-25T17:46:51.287Z">
+<meta property="article:modified_time" content="2023-03-30T12:10:07.886Z">
 <meta property="article:author" content="xue bai">
 <meta property="article:tag" content="程序员的自我修养">
 <meta name="twitter:card" content="summary">
@@ -228,7 +228,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~2.02K
+                        ~3.54K
                     
                     字
                 </li>
@@ -239,7 +239,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1679766411287"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1680178207886"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -290,8 +290,31 @@
 
 <p>进入容器</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it docker-jenkins bash</span><br></pre></td></tr></table></figure>
-<p>待整理中</p>
 <!--https://www.ywbj.cc/?p=151-->
+<ol>
+<li><code>docker run</code>: 运行一个新的容器。 例如： <code>docker run nginx</code> 将在一个新的容器中运行Nginx。</li>
+<li><code>docker ps</code>: 列出所有正在运行的容器。 例如： <code>docker ps</code> 将列出所有正在运行的容器的详细信息。</li>
+<li><code>docker stop</code>: 停止正在运行的容器。 例如： <code>docker stop container_name</code> 将停止名为“container_name”的容器。</li>
+<li><code>docker rm</code>: 删除一个或多个容器。 例如： <code>docker rm container_name</code> 将删除名为“container_name”的容器。</li>
+<li><code>docker images</code>: 列出本地的Docker镜像。 例如： <code>docker images</code> 将列出本地存储的所有Docker镜像。</li>
+<li><code>docker rmi</code>: 删除本地的Docker镜像。 例如： <code>docker rmi image_name</code> 将删除名为“image_name”的本地Docker镜像。</li>
+<li><code>docker pull</code>: 下载一个Docker镜像。 例如： <code>docker pull nginx</code> 将下载最新版本的Nginx镜像。</li>
+<li><code>docker push</code>: 将一个Docker镜像上传到Docker Hub。 例如： <code>docker push username/image_name</code> 将上传名为“image_name”的本地Docker镜像到Docker Hub上的用户名为“username”的仓库中。</li>
+<li><code>docker inspect</code>: 查看Docker容器的详细信息。 例如： <code>docker inspect container_name</code> 将显示名为“container_name”的容器的详细信息。</li>
+<li><code>docker exec</code>: 在正在运行的容器中执行命令。 例如： <code>docker exec -it container_name bash</code> 将在名为“container_name”的容器中打开一个Bash shell。</li>
+<li><code>docker start</code>: 启动已经停止的容器，让其重新运行。</li>
+<li><code>docker pull</code>: 拉取镜像，在Docker中，一般的使用流程是<strong>先拉取镜像，然后使用镜像创建容器并启动</strong>。就是先pull再run，之后再使用就进入容器然后docker start的用。</li>
+</ol>
+<p>删除镜像后还能在容器中安装镜像，具体的命令就跟容器命令一样，比如说我拉了<code>docker pull jenkins</code>，它的容器是linux（这个自动生成的），然后rmi了镜像之后，可以使用shell命令在其中重新安装，就像在linux电脑里一样的。比如想安装apache的话，命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install apache2</span><br></pre></td></tr></table></figure>
+<p>删除容器就要重新pull了。</p>
+<h2 id="其他补充："><a href="#其他补充：" class="headerlink" title="其他补充："></a>其他补充：</h2><p>在一些情况下，Docker会自动完成拉取镜像、创建容器和启动容器的过程，具体取决于您使用的命令和Docker的配置。</p>
+<p>例如，如果您使用的是 docker run 命令，则Docker将自动完成以下操作：</p>
+<p>如果本地不存在指定的镜像，则从默认的镜像仓库（例如Docker Hub）拉取该镜像。</p>
+<p>使用指定的镜像创建一个新的容器，并启动该容器。</p>
+<p>但是，如果您使用的是 docker create 和 docker start 命令，则需要手动完成这些步骤。</p>
+<p>在任何情况下，Docker都会自动完成一些基本的设置和配置，例如创建容器网络、分配IP地址和端口等。但是，一些高级设置和配置可能需要手动完成，例如挂载主机文件、配置容器卷等。</p>
+<p>因此，对于每个具体的使用场景，您需要仔细检查Docker命令和配置，并根据需要手动完成必要的步骤。</p>
 </div>
         </div>
         
@@ -383,7 +406,7 @@
                     <a class="tag-none-link" href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/" rel="tag">程序员的自我修养</a>
                 </div>
                 <div class="pull-date">
-                    <!-- <time datetime="2023-03-25T17:46:51.287Z" itemprop="dateModified">最后编辑：2023-03-26</time> -->
+                    <!-- <time datetime="2023-03-30T12:10:07.886Z" itemprop="dateModified">最后编辑：2023-03-30</time> -->
                 </div>
             </div>
         </footer>
