@@ -3,12 +3,19 @@ title: react-hooks
 date: 2023-03-14 17:11:14
 tags:
 ---
-
+## 一、基本介绍
 react是基于数据是不可变的（每次setState都会返回一个新数据），这也是为什么需要setState()来更新数据而不能使用像vue的this.state = newState的形式更新数据的原因，其实你用this.state=newState确实可以改数据，但是react不知道数据变了。
 
-## 二、useMemo、useEffect的执行时机对比
+## 二、useMemo、useCallback的执行时机对比
 
 useMemo和useCallback都会在**组件第一次渲染的时候执行**，之后会在其**依赖的变量发生改变时再次执行**；并且这两个`hooks`都返回缓存的值，`useMemo`返回**缓存的变量**，`useCallback`返回**缓存的函数**。
+
+## 三、useEffect 和 useMemo 区别
+useEffect是在DOM改变之后触发，useMemo在DOM渲染之前就触发
+useMemo是在DOM更新前触发的，就像官方所说的，类比生命周期就是[shouldComponentUpdate]
+useEffect可以帮助我们在DOM更新完成后执行某些副作用操作，如数据获取，设置订阅以及手动更改 React 组件中的 DOM 等
+不要在这个useMemo函数内部执行与渲染无关的操作，诸如副作用这类的操作属于 useEffect 的适用范畴，而不是 useMemo
+在useMemo中使用setState你会发现会产生死循环，并且会有警告，因为useMemo是在渲染中进行的，你在其中操作DOM后，又会导致触发memo
 
 ## 三、useMemo
 可以把它理解成vue里面的computed，是一种数据的缓存，而这个缓存依赖后面的第二个参数数组。
@@ -85,7 +92,8 @@ export default App;
 ## 四、useCallback
 useCallback跟useMemo比较类似，但它返回的是缓存的函数。
 
-使用场景：有一个父组件，其中包含子组件，子组件接收一个函数作为props；通常而言，如果父组件更新了，子组件也会执行更新；但是大多数场景下，更新是没有必要的，我们可以借助useCallback来返回函数，然后把这个函数作为props传递给子组件；这样，子组件就能避免不必要的更新。
+使用场景：有一个父组件，其中包含子组件，子组件接收一个函数作为props；通常而言，如果父组件更新了，子组件也会执行更新；但是大多数场景下，更新是没有必要的，我们可以借助useCallback来返回函数，然后把这个函数作为props传递给子组件；由于useCallback返回的函数实例在第二个参数，也就是依赖项未发生变化时不会被重新创建，因此，每次父组件的更新不会导致子组件内部的函数实例发生变化。
+这样，子组件就能避免不必要的更新。
 
 **useCallback一般要配合React.memo来使用：**
 react的Hooks组件对props的浅比较是在memo里面比较的（类组件是在shouldComponentUpdate里面），如果没有memo，那么你使用useCallback就没啥意义，反而浪费性能（因为useCallback来包裹函数也是需要开销的）。因为子组件还是会重新渲染。
@@ -221,3 +229,5 @@ function UseMemoChild({memoizedValue}: PropType) {
 export default UseMemoChild;
 
 ```
+
+![image-20230330145149288](/images/image-20230330145149288.png)
