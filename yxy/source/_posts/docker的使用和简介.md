@@ -97,8 +97,8 @@ systemctl start docker.service启动docker。
 docker exec -it docker-jenkins bash
 ```
 <!--https://www.ywbj.cc/?p=151-->
-1. `docker run`: 运行一个新的容器。 例如： `docker run nginx` 将在一个新的容器中运行Nginx。
-2. `docker ps`: 列出所有正在运行的容器。 例如： `docker ps` 将列出所有正在运行的容器的详细信息。
+1. `docker run`: **创建并启动**一个新的容器。 例如： `docker run nginx` 将在一个新的容器中运行Nginx。
+2. `docker start`: 启动**已经存在**的容器，让其重新运行。
 3. `docker stop`: 停止正在运行的容器。 例如： `docker stop container_name` 将停止名为“container_name”的容器。
 4. `docker rm`: 删除一个或多个容器。 例如： `docker rm container_name` 将删除名为“container_name”的容器。
 5. `docker images`: 列出本地的Docker镜像。 例如： `docker images` 将列出本地存储的所有Docker镜像。
@@ -107,8 +107,9 @@ docker exec -it docker-jenkins bash
 8. `docker push`: 将一个Docker镜像上传到Docker Hub。 例如： `docker push username/image_name` 将上传名为“image_name”的本地Docker镜像到Docker Hub上的用户名为“username”的仓库中。
 9. `docker inspect`: 查看Docker容器的详细信息。 例如： `docker inspect container_name` 将显示名为“container_name”的容器的详细信息。
 10. `docker exec`: 在正在运行的容器中执行命令。 例如： `docker exec -it container_name bash` 将在名为“container_name”的容器中打开一个Bash shell。
-11. `docker start`: 启动已经停止的容器，让其重新运行。
+11. `docker ps`: 列出所有正在运行的容器。 例如： `docker ps` 将列出所有正在运行的容器的详细信息。`docker ps -a`列出所有正在运行的没在运行的容器。
 12. `docker pull`: 拉取镜像，在Docker中，一般的使用流程是**先拉取镜像，然后使用镜像创建容器并启动**。就是先pull再run，之后再使用就进入容器然后docker start的用。
+13. `docker search xxx`: 选择安装的镜像，如`docker search jenkins`,会列出所有的jenkins镜像，然后使用docker pull [name] 安装。
 
 删除镜像后还能在容器中安装镜像，具体的命令就跟容器命令一样，比如说我拉了`docker pull jenkins`，它的容器是linux（这个自动生成的），然后rmi了镜像之后，可以使用shell命令在其中重新安装，就像在linux电脑里一样的。比如想安装apache的话，命令：
 ```

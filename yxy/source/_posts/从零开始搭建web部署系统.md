@@ -1,6 +1,7 @@
 ---
-title: 从零开始搭建web部署系统
-date: 2023-03-21 10:55:58
+title: 搭建web部署系统
+date: 2022-03-21 10:55:58
+tags: iv
 categories:
   - 程序员的自我修养
 ---
@@ -23,7 +24,7 @@ Jenkins是一款开源的自动化部署工具，可以通过插件来实现各�
 ## ssh remote hosts 的作用
 该插件允许Jenkins将指令发送到远程服务器，并获取执行结果。这对于自动化部署和持续集成非常有用。通过SSH Remote Hosts插件，您可以配置Jenkins与多个远程服务器之间的连接。您可以指定服务器的IP地址、用户名、密码、端口号等信息。在建立连接后，您可以在Jenkins上执行各种命令，如运行shell脚本、安装软件包、复制文件等等。
 
-在使用SSH Remote Hosts插件时，需要注意以下几点：
+在使用SSH Remote Hosts时，需要注意以下几点：
 
 在远程服务器上安装SSH服务，以便Jenkins可以连接到服务器。
 确保您在Jenkins服务器上安装了SSH插件。
