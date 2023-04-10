@@ -25,7 +25,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
 <meta property="article:published_time" content="2023-03-15T10:04:24.000Z">
-<meta property="article:modified_time" content="2023-03-15T10:38:49.731Z">
+<meta property="article:modified_time" content="2023-04-10T05:51:44.443Z">
 <meta property="article:author" content="xue bai">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://yuxiaoyujun.github.io/images/logo.png">
@@ -227,7 +227,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~2.84K
+                        ~3.59K
                     
                     字
                 </li>
@@ -238,7 +238,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1678876729731"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1681105904443"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -251,6 +251,16 @@
 <p>属性关键字：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">repeat(<span class="number">3</span>,&#x27;<span class="number">100px</span>&#x27;)  // 一列/一行有<span class="number">3</span>个子元素，一个<span class="number">100px</span></span><br><span class="line">fr</span><br><span class="line">auto // 默认</span><br><span class="line">auto-fill // 换行时一行或一列尽可能塞下最多的</span><br></pre></td></tr></table></figure>
 
+<h4 id="auto-fill-和-auto-fit-的区别"><a href="#auto-fill-和-auto-fit-的区别" class="headerlink" title="auto-fill 和 auto-fit 的区别"></a>auto-fill 和 auto-fit 的区别</h4><p><code>auto-fill</code>和<code>auto-fit</code>都是CSS的<code>repeat()</code>函数的扩展值，用于自动填充和调整网格项目的数量。</p>
+<p><code>auto-fill</code>会自动填充网格容器，尽可能多地填充项目，而不考虑项目的大小。它会在一个网格轨道上放置尽可能多的项目，然后通过增加网格行或列来添加更多项目。这意味着它会在网格轨道上尽可能多地放置项目，直到没有更多项目可以放置为止。因此，它可以在轨道中留下一些空间，因为不会强制填充整个轨道。</p>
+<p>例如，如果我们有一个网格容器和一个项目，这个项目的大小是200像素，我们使用<code>auto-fill</code>并设置每个轨道的大小为250像素，那么这个项目将占用整个轨道，因为它可以在轨道上放置一个完整的项目。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, <span class="number">250px</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>auto-fit</code>会调整网格项目，以使网格填满容器，而不考虑项目的数量。它会在网格轨道上放置尽可能多的项目，但如果剩下的空间不能容纳一个完整的项目，它将缩小项目的大小，以使它们适合空间。这意味着它会填充整个轨道，因此不会在轨道中留下空间。</p>
+<p>例如，如果我们有一个网格容器和一个项目，这个项目的大小是200像素，我们使用<code>auto-fit</code>并设置每个轨道的大小为250像素，那么这个项目将被缩小，以适合轨道，并留下50像素的空间。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fit, <span class="built_in">minmax</span>(<span class="number">200px</span>, <span class="number">1</span>fr));</span><br></pre></td></tr></table></figure>
+
+<p>因此，<code>auto-fill</code>和<code>auto-fit</code>的区别在于它们处理空间的方式不同。<code>auto-fill</code>会填充整个轨道，但是可能留下一些空间，而<code>auto-fit</code>则会完全填充整个轨道，但可能会缩小项目的大小来适合空间。</p>
 <h2 id="二、-grid布局"><a href="#二、-grid布局" class="headerlink" title="二、 grid布局"></a>二、 grid布局</h2><h4 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="(1) 基本使用"></a>(1) 基本使用</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;  </span><br><span class="line">  <span class="attribute">display</span>: grid;  </span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span>;  <span class="attribute">grid-template-rows</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上面代码意思是三行三列的布局，行宽100px，高100px，也可以使用百分比</p>
@@ -371,7 +381,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <!-- <time datetime="2023-03-15T10:38:49.731Z" itemprop="dateModified">最后编辑：2023-03-15</time> -->
+                    <!-- <time datetime="2023-04-10T05:51:44.443Z" itemprop="dateModified">最后编辑：2023-04-10</time> -->
                 </div>
             </div>
         </footer>
@@ -445,7 +455,7 @@
                 文章
             </span>
             <span class="count">
-                101
+                103
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -461,7 +471,7 @@
                 标签
             </span>
             <span class="count">
-                34
+                36
             </span>
         </a>
     </div>
@@ -472,7 +482,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/">乱七八糟</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%A7%AF%E7%B4%AF/">奇奇怪怪的积累</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E6%A8%A1/">建模</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B0%B4%E4%BB%99%E8%8A%B1%E8%A7%82%E5%AF%9F%E6%97%A5%E8%AE%B0/">水仙花观察日记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/">程序员的自我修养</a><span class="category-list-count">56</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%83%E5%AD%97/">练字</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E7%94%BB/">绘画</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/">乱七八糟</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%A7%AF%E7%B4%AF/">奇奇怪怪的积累</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E6%A8%A1/">建模</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B0%B4%E4%BB%99%E8%8A%B1%E8%A7%82%E5%AF%9F%E6%97%A5%E8%AE%B0/">水仙花观察日记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/">程序员的自我修养</a><span class="category-list-count">57</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%83%E5%AD%97/">练字</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E7%94%BB/">绘画</a><span class="category-list-count">11</span></li></ul>
   </aside>
 
 
@@ -481,7 +491,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Midjourney/" style="font-size: 0.6em;">Midjourney</a> <a href="/tags/ai%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">ai绘画</a> <a href="/tags/api/" style="font-size: 0.6em;">api</a> <a href="/tags/axios/" style="font-size: 0.6em;">axios</a> <a href="/tags/babel/" style="font-size: 0.65em;">babel</a> <a href="/tags/blender/" style="font-size: 0.75em;">blender</a> <a href="/tags/css/" style="font-size: 0.65em;">css</a> <a href="/tags/github/" style="font-size: 0.6em;">github</a> <a href="/tags/js/" style="font-size: 0.8em;">js</a> <a href="/tags/jsdelivr/" style="font-size: 0.6em;">jsdelivr</a> <a href="/tags/midjourney/" style="font-size: 0.6em;">midjourney</a> <a href="/tags/node/" style="font-size: 0.7em;">node</a> <a href="/tags/npm/" style="font-size: 0.7em;">npm</a> <a href="/tags/pr/" style="font-size: 0.6em;">pr</a> <a href="/tags/react/" style="font-size: 0.6em;">react</a> <a href="/tags/typescript/" style="font-size: 0.65em;">typescript</a> <a href="/tags/vue/" style="font-size: 0.65em;">vue</a> <a href="/tags/webpack/" style="font-size: 0.65em;">webpack</a>
+        <a href="/tags/Midjourney/" style="font-size: 0.6em;">Midjourney</a> <a href="/tags/ai%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">ai绘画</a> <a href="/tags/api/" style="font-size: 0.6em;">api</a> <a href="/tags/axios/" style="font-size: 0.6em;">axios</a> <a href="/tags/babel/" style="font-size: 0.64em;">babel</a> <a href="/tags/blender/" style="font-size: 0.76em;">blender</a> <a href="/tags/css/" style="font-size: 0.68em;">css</a> <a href="/tags/github/" style="font-size: 0.6em;">github</a> <a href="/tags/iv/" style="font-size: 0.72em;">iv</a> <a href="/tags/js/" style="font-size: 0.8em;">js</a> <a href="/tags/jsdelivr/" style="font-size: 0.6em;">jsdelivr</a> <a href="/tags/midjourney/" style="font-size: 0.64em;">midjourney</a> <a href="/tags/node/" style="font-size: 0.68em;">node</a> <a href="/tags/npm/" style="font-size: 0.68em;">npm</a> <a href="/tags/pr/" style="font-size: 0.6em;">pr</a> <a href="/tags/react/" style="font-size: 0.6em;">react</a> <a href="/tags/typescript/" style="font-size: 0.64em;">typescript</a> <a href="/tags/uni-app/" style="font-size: 0.6em;">uni-app</a>
       </div>
   </aside>
 
@@ -492,6 +502,18 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2023/04/09/uni-app%E5%9F%BA%E7%A1%80/"><i class="fa  fa-book"></i> uni-app基础(总结中)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2023/04/04/midjourney%E8%BF%9B%E9%98%B6/"><i class="fa  fa-book"></i> midjourney 之 prompts（一）</a>
+            
+          
         
           
           
@@ -512,17 +534,9 @@
           
         
           
-          
-            <a class="list-group-item" href="/2023/03/30/%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9B%B8%E5%85%B3/"><i class="fa  fa-book"></i> 组件库相关</a>
             
           
-        
-          
-          
-            <a class="list-group-item" href="/2023/03/28/npm%E5%8F%91%E5%B8%83/"><i class="fa  fa-book"></i> 【npm】npm发布步骤</a>
             
-          
-        
           
             
           

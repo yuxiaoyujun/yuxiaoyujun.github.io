@@ -25,7 +25,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
 <meta property="article:published_time" content="2023-03-21T02:56:21.000Z">
-<meta property="article:modified_time" content="2023-03-30T12:10:07.886Z">
+<meta property="article:modified_time" content="2023-04-04T02:39:36.021Z">
 <meta property="article:author" content="xue bai">
 <meta property="article:tag" content="程序员的自我修养">
 <meta name="twitter:card" content="summary">
@@ -228,7 +228,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~3.54K
+                        ~3.66K
                     
                     字
                 </li>
@@ -239,7 +239,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1680178207886"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1680575976021"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -292,8 +292,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it docker-jenkins bash</span><br></pre></td></tr></table></figure>
 <!--https://www.ywbj.cc/?p=151-->
 <ol>
-<li><code>docker run</code>: 运行一个新的容器。 例如： <code>docker run nginx</code> 将在一个新的容器中运行Nginx。</li>
-<li><code>docker ps</code>: 列出所有正在运行的容器。 例如： <code>docker ps</code> 将列出所有正在运行的容器的详细信息。</li>
+<li><code>docker run</code>: <strong>创建并启动</strong>一个新的容器。 例如： <code>docker run nginx</code> 将在一个新的容器中运行Nginx。</li>
+<li><code>docker start</code>: 启动<strong>已经存在</strong>的容器，让其重新运行。</li>
 <li><code>docker stop</code>: 停止正在运行的容器。 例如： <code>docker stop container_name</code> 将停止名为“container_name”的容器。</li>
 <li><code>docker rm</code>: 删除一个或多个容器。 例如： <code>docker rm container_name</code> 将删除名为“container_name”的容器。</li>
 <li><code>docker images</code>: 列出本地的Docker镜像。 例如： <code>docker images</code> 将列出本地存储的所有Docker镜像。</li>
@@ -302,8 +302,9 @@
 <li><code>docker push</code>: 将一个Docker镜像上传到Docker Hub。 例如： <code>docker push username/image_name</code> 将上传名为“image_name”的本地Docker镜像到Docker Hub上的用户名为“username”的仓库中。</li>
 <li><code>docker inspect</code>: 查看Docker容器的详细信息。 例如： <code>docker inspect container_name</code> 将显示名为“container_name”的容器的详细信息。</li>
 <li><code>docker exec</code>: 在正在运行的容器中执行命令。 例如： <code>docker exec -it container_name bash</code> 将在名为“container_name”的容器中打开一个Bash shell。</li>
-<li><code>docker start</code>: 启动已经停止的容器，让其重新运行。</li>
+<li><code>docker ps</code>: 列出所有正在运行的容器。 例如： <code>docker ps</code> 将列出所有正在运行的容器的详细信息。<code>docker ps -a</code>列出所有正在运行的没在运行的容器。</li>
 <li><code>docker pull</code>: 拉取镜像，在Docker中，一般的使用流程是<strong>先拉取镜像，然后使用镜像创建容器并启动</strong>。就是先pull再run，之后再使用就进入容器然后docker start的用。</li>
+<li><code>docker search xxx</code>: 选择安装的镜像，如<code>docker search jenkins</code>,会列出所有的jenkins镜像，然后使用docker pull [name] 安装。</li>
 </ol>
 <p>删除镜像后还能在容器中安装镜像，具体的命令就跟容器命令一样，比如说我拉了<code>docker pull jenkins</code>，它的容器是linux（这个自动生成的），然后rmi了镜像之后，可以使用shell命令在其中重新安装，就像在linux电脑里一样的。比如想安装apache的话，命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install apache2</span><br></pre></td></tr></table></figure>
@@ -406,7 +407,7 @@
                     <a class="tag-none-link" href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/" rel="tag">程序员的自我修养</a>
                 </div>
                 <div class="pull-date">
-                    <!-- <time datetime="2023-03-30T12:10:07.886Z" itemprop="dateModified">最后编辑：2023-03-30</time> -->
+                    <!-- <time datetime="2023-04-04T02:39:36.021Z" itemprop="dateModified">最后编辑：2023-04-04</time> -->
                 </div>
             </div>
         </footer>
@@ -415,7 +416,7 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 从零开始搭建web部署系统" href="/2023/03/21/从零开始搭建web部署系统/">&lt; 上一篇</a>
+                <a title=" 【移动端】自适应方案" href="/2023/03/20/移动端自适应方案/">&lt; 上一篇</a>
             </div>
             
             
@@ -480,7 +481,7 @@
                 文章
             </span>
             <span class="count">
-                101
+                103
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -496,7 +497,7 @@
                 标签
             </span>
             <span class="count">
-                34
+                36
             </span>
         </a>
     </div>
@@ -507,7 +508,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/">乱七八糟</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%A7%AF%E7%B4%AF/">奇奇怪怪的积累</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E6%A8%A1/">建模</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B0%B4%E4%BB%99%E8%8A%B1%E8%A7%82%E5%AF%9F%E6%97%A5%E8%AE%B0/">水仙花观察日记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/">程序员的自我修养</a><span class="category-list-count">56</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%83%E5%AD%97/">练字</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E7%94%BB/">绘画</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/">乱七八糟</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%A7%AF%E7%B4%AF/">奇奇怪怪的积累</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E6%A8%A1/">建模</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B0%B4%E4%BB%99%E8%8A%B1%E8%A7%82%E5%AF%9F%E6%97%A5%E8%AE%B0/">水仙花观察日记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/">程序员的自我修养</a><span class="category-list-count">57</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%83%E5%AD%97/">练字</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E7%94%BB/">绘画</a><span class="category-list-count">11</span></li></ul>
   </aside>
 
 
@@ -516,7 +517,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Midjourney/" style="font-size: 0.6em;">Midjourney</a> <a href="/tags/ai%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">ai绘画</a> <a href="/tags/api/" style="font-size: 0.6em;">api</a> <a href="/tags/axios/" style="font-size: 0.6em;">axios</a> <a href="/tags/babel/" style="font-size: 0.65em;">babel</a> <a href="/tags/blender/" style="font-size: 0.75em;">blender</a> <a href="/tags/css/" style="font-size: 0.65em;">css</a> <a href="/tags/github/" style="font-size: 0.6em;">github</a> <a href="/tags/js/" style="font-size: 0.8em;">js</a> <a href="/tags/jsdelivr/" style="font-size: 0.6em;">jsdelivr</a> <a href="/tags/midjourney/" style="font-size: 0.6em;">midjourney</a> <a href="/tags/node/" style="font-size: 0.7em;">node</a> <a href="/tags/npm/" style="font-size: 0.7em;">npm</a> <a href="/tags/pr/" style="font-size: 0.6em;">pr</a> <a href="/tags/react/" style="font-size: 0.6em;">react</a> <a href="/tags/typescript/" style="font-size: 0.65em;">typescript</a> <a href="/tags/vue/" style="font-size: 0.65em;">vue</a> <a href="/tags/webpack/" style="font-size: 0.65em;">webpack</a>
+        <a href="/tags/Midjourney/" style="font-size: 0.6em;">Midjourney</a> <a href="/tags/ai%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">ai绘画</a> <a href="/tags/api/" style="font-size: 0.6em;">api</a> <a href="/tags/axios/" style="font-size: 0.6em;">axios</a> <a href="/tags/babel/" style="font-size: 0.64em;">babel</a> <a href="/tags/blender/" style="font-size: 0.76em;">blender</a> <a href="/tags/css/" style="font-size: 0.68em;">css</a> <a href="/tags/github/" style="font-size: 0.6em;">github</a> <a href="/tags/iv/" style="font-size: 0.72em;">iv</a> <a href="/tags/js/" style="font-size: 0.8em;">js</a> <a href="/tags/jsdelivr/" style="font-size: 0.6em;">jsdelivr</a> <a href="/tags/midjourney/" style="font-size: 0.64em;">midjourney</a> <a href="/tags/node/" style="font-size: 0.68em;">node</a> <a href="/tags/npm/" style="font-size: 0.68em;">npm</a> <a href="/tags/pr/" style="font-size: 0.6em;">pr</a> <a href="/tags/react/" style="font-size: 0.6em;">react</a> <a href="/tags/typescript/" style="font-size: 0.64em;">typescript</a> <a href="/tags/uni-app/" style="font-size: 0.6em;">uni-app</a>
       </div>
   </aside>
 
@@ -527,6 +528,18 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2023/04/09/uni-app%E5%9F%BA%E7%A1%80/"><i class="fa  fa-book"></i> uni-app基础(总结中)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2023/04/04/midjourney%E8%BF%9B%E9%98%B6/"><i class="fa  fa-book"></i> midjourney 之 prompts（一）</a>
+            
+          
         
           
           
@@ -547,17 +560,9 @@
           
         
           
-          
-            <a class="list-group-item" href="/2023/03/30/%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9B%B8%E5%85%B3/"><i class="fa  fa-book"></i> 组件库相关</a>
             
           
-        
-          
-          
-            <a class="list-group-item" href="/2023/03/28/npm%E5%8F%91%E5%B8%83/"><i class="fa  fa-book"></i> 【npm】npm发布步骤</a>
             
-          
-        
           
             
           
