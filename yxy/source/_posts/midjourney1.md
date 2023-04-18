@@ -1,12 +1,12 @@
 ---
-title: 【ai绘画】midjourney入门（一）
+title: 【ai绘画】Midjourney 之 入门
 date: 2023-04-03 11:37:57
-tags: midjourney
+tags: Midjourney
 categories: 绘画
 ---
 
-本来不想搞，最近忙着准备面试呢，想了想还是整理一下文档吧。
-ai绘画出来一个我就搁colab部署一个，midjourney掏点儿小钱就能省去我部署的步骤真是太好了。
+想了想还是整理一下文档吧。
+ai出来一个我就搁colab部署一个，midjourney掏点儿小钱就能省去我部署的步骤真是太好了。
 而且也不像stable diffusion那样需要自己搜集训练模型
 我体验过的ai绘画中算是效果最好，上手难度最低的一个。
 

@@ -1,6 +1,6 @@
 ---
-title: uni-app基础
-date: 2023-04-09 16:09:55
+title: uni-app基础(总结中)
+date: 2023-04-06 16:09:55
 tags: uni-app
 categories: 程序员的自我修养
 ---
@@ -61,15 +61,15 @@ HTML5+引擎为应用提供了原生的安卓端和ios端的方法。有一些�
 
 ### 1.  通过hbuilder创建
 
-安装好hbuilder后，![image-20230409164610512](../images/image-20230409164610512.png)
+安装好hbuilder后，![image-20230409164610512](/images/image-20230409164610512.png)
 
-![](../images/image-20230409164532726.png)
+![](/images/image-20230409164532726.png)
 
 运行：
 
-![image-20230409164759496](../images/image-20230409164759496.png)
+![image-20230409164759496](/images/image-20230409164759496.png)
 
-![](../images/image-20230409165247195.png)
+![](/images/image-20230409165247195.png)
 
 ### 2.  通过vue命令行创建
 
@@ -103,7 +103,7 @@ vue create -p dcloudio/uni-preset-vue#alpha my-alpha-project
 
 和vue一样
 
-```vue
+```html
 <template>
 	<view class="content" :class="className" @click="consoleTitle">
 		{{title}}
@@ -157,7 +157,7 @@ this.title = 'title'
 
 ### 3. 条件判断
 
-```vue
+```html
 	<view v-if="title==='uniapp'" class="content" :class="className" @click="consoleTitle">
 		{{title}}
 	</view>
@@ -167,7 +167,7 @@ this.title = 'title'
 
 ### 4. 列表渲染
 
-```vue
+```html
 	<view v-for = "(list,index) in lists">
 		{{list.name}}
 	</view>
@@ -197,7 +197,7 @@ this.title = 'title'
 
 `cover-image`和`cover-view`用法相同，区别在于`cover-image`只可以放图片，它可以嵌套在`cover-view`中
 
-```vue
+```html
 <template>
 	<view class="page">
 		<video class="video" id="demoVideo" :controls="false" :enable-progress-gesture="false" :show-center-play-btn="true" src="https://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20181126-lite.m4v">

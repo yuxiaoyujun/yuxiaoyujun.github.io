@@ -1,7 +1,7 @@
 ---
 title: docker的使用和简介
 date: 2023-03-21 10:56:21
-tags: 程序员的自我修养
+categories: 程序员的自我修养
 ---
 
 ## docker简介
@@ -103,15 +103,15 @@ docker exec -it docker-jenkins bash
 4. `docker rm`: 删除一个或多个容器。 例如： `docker rm container_name` 将删除名为“container_name”的容器。
 5. `docker images`: 列出本地的Docker镜像。 例如： `docker images` 将列出本地存储的所有Docker镜像。
 6. `docker rmi`: 删除本地的Docker镜像。 例如： `docker rmi image_name` 将删除名为“image_name”的本地Docker镜像。
-7. `docker pull`: 下载一个Docker镜像。 例如： `docker pull nginx` 将下载最新版本的Nginx镜像。
+7. `docker pull`: 下载一个Docker**镜像**，不包含容器。 例如： `docker pull nginx` 将下载最新版本的Nginx镜像。
+关于docker pull的更详尽的解释，请看下方**其它补充**
 8. `docker push`: 将一个Docker镜像上传到Docker Hub。 例如： `docker push username/image_name` 将上传名为“image_name”的本地Docker镜像到Docker Hub上的用户名为“username”的仓库中。
 9. `docker inspect`: 查看Docker容器的详细信息。 例如： `docker inspect container_name` 将显示名为“container_name”的容器的详细信息。
 10. `docker exec`: 在正在运行的容器中执行命令。 例如： `docker exec -it container_name bash` 将在名为“container_name”的容器中打开一个Bash shell。
 11. `docker ps`: 列出所有正在运行的容器。 例如： `docker ps` 将列出所有正在运行的容器的详细信息。`docker ps -a`列出所有正在运行的没在运行的容器。
-12. `docker pull`: 拉取镜像，在Docker中，一般的使用流程是**先拉取镜像，然后使用镜像创建容器并启动**。就是先pull再run，之后再使用就进入容器然后docker start的用。
-13. `docker search xxx`: 选择安装的镜像，如`docker search jenkins`,会列出所有的jenkins镜像，然后使用docker pull [name] 安装。
+12. `docker search xxx`: 选择安装的镜像，如`docker search jenkins`,会列出所有的jenkins镜像，然后使用docker pull [name] 安装。
 
-删除镜像后还能在容器中安装镜像，具体的命令就跟容器命令一样，比如说我拉了`docker pull jenkins`，它的容器是linux（这个自动生成的），然后rmi了镜像之后，可以使用shell命令在其中重新安装，就像在linux电脑里一样的。比如想安装apache的话，命令：
+删除镜像后还能在容器中安装镜像，具体的命令就跟容器命令一样，比如说我拉了`docker run jenkins`，它的容器是linux（这个自动生成的），然后rmi了镜像之后，可以使用shell命令在其中重新安装，就像在linux电脑里一样的。比如想安装apache的话，命令：
 ```
 apt-get update
 apt-get install apache2
@@ -119,20 +119,52 @@ apt-get install apache2
 删除容器就要重新pull了。
 ## 其他补充：
 
+### 1. docker run的细节
 在一些情况下，Docker会自动完成拉取镜像、创建容器和启动容器的过程，具体取决于您使用的命令和Docker的配置。
-
 例如，如果您使用的是 docker run 命令，则Docker将自动完成以下操作：
 
-如果本地不存在指定的镜像，则从默认的镜像仓库（例如Docker Hub）拉取该镜像。
++ 如果本地不存在指定的镜像，则从默认的镜像仓库（例如Docker Hub）拉取该镜像。
++ 使用指定的镜像创建一个新的容器，并启动该容器。
 
-使用指定的镜像创建一个新的容器，并启动该容器。
-
-但是，如果您使用的是 docker create 和 docker start 命令，则需要手动完成这些步骤。
+但是，如果您使用的是 `docker create` 和 `docker start` 命令，则需要手动完成这些步骤。
 
 在任何情况下，Docker都会自动完成一些基本的设置和配置，例如创建容器网络、分配IP地址和端口等。但是，一些高级设置和配置可能需要手动完成，例如挂载主机文件、配置容器卷等。
 
 因此，对于每个具体的使用场景，您需要仔细检查Docker命令和配置，并根据需要手动完成必要的步骤。
 
+### 2. docker run和docker start
+当容器不存在时，`docker run`会拉取一个镜像（img）并创建一个容器（container）并运行，也就是说，`docker run`可以隐式包含`docker pull`
 
+如果容器已经存在，`docker run` 和 `docker start` 也会有不同的作用。
+`docker start` 会启动一个已经停止的容器，它的运行时状态与停止之前一样，包括任何已经添加到容器中的文件或数据。
+`docker run` 则会创建一个新的容器，并在其中运行指定的命令或应用程序。如果使用的是同一个容器名称，`docker run` 将会**重新创建一个新的容器，而不是启动原来的容器**。
+因此，如果你想启动一个已经存在的容器，应该使用 `docker start`。如果你想要创建一个新的容器并运行一个新的命令，应该使用 `docker run`。
 
+### 3. docker pull 的详尽解释
+
+在Docker中，一般的使用流程是**先拉取镜像，然后使用镜像创建容器并启动**。就是先pull再run。但实际上如果使用的是公共的 Docker Hub 镜像，`dockder pull`就不是必须的。
+但是在一些情况下，需要在本地预先拉取镜像，例如：
+
++ 你需要从一个私有的 Docker Registry 拉取镜像，而该 Registry 可能需要身份验证或者在防火墙之后；
++ 你需要将拉取的镜像进行修改或者自定义操作，然后再创建容器，而不是从 Docker Hub 直接拉取。
+
+因此，在这些情况下，我们需要使用 `docker pull` 命令来拉取镜像到本地，然后再使用 docker run 命令来创建容器。
+
+### 4. 如何使用 docker 拉取并运行私人镜像
+
+首先，你需要确保你能够访问这个私人镜像。如果这个私人镜像是托管在 Docker Hub 上的，则需要相应的权限。如果是自己搭建的私有镜像库，则需要配置相应的访问权限。
+
+接下来，你可以在命令行中使用以下命令来拉取这个私人镜像：
+
+```js
+docker pull <私人镜像地址>/<私人镜像名称>:<标签>
+```
+
+其中 `<私人镜像地址>` 是私人镜像的地址，`<私人镜像名称>` 是私人镜像的名称，`<标签>` 是镜像的标签。
+
+例如，如果你要拉取一个私人镜像地址为 `myregistry.com`，镜像名称为 `abc`，标签为 `latest` 的镜像，可以使用以下命令：
+
+```js
+docker pull myregistry.com/abc:latest
+```
 
