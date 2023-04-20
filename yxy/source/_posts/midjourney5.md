@@ -48,6 +48,8 @@ categories: 绘画
 
 A handsome and strong soldier wearing green military uniform, with half of his face visible, in a Japanese anime style. The illustration is semi-thickly painted with bright and colorful tones, resulting in an attractive and glossy finish. 
 
+adg
+
 The scene is set during daytime, under the shining sun. A sweet-looking Japanese-style girl is depicted from the waist up, sporting double buns with her hair mostly blue but also featuring some colorful strands. Her blue eyes are accentuated by a semi-thick paint style and the lighting is coming from the side, highlighting her slightly tilted head and resulting in an attractive glossy finish. 
 
 3d风格

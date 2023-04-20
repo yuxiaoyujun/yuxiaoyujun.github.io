@@ -334,11 +334,15 @@ span.mjx-chtml.MJXc-display {
 }
 
 .kratos-cover.kratos-cover-2 {
-    background-image: $banner_image;
+    background-size: 100% 100%;
+    background-image: $banner_image !important;
 }
 
 @media(min-width:768px) {
     body.custom-background {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 100% 30%;
         background-image: $background-image;
     }
 }

@@ -1,5 +1,5 @@
 ---
-title: 【ai绘画】Midjourney 之 Commands（命令）
+title: 【ai绘画】Midjourney 之 Commands（命令概述）
 date: 2023-04-10 19:06:10
 tags: Midjourney
 categories: 绘画
