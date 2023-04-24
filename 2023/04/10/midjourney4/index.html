@@ -25,7 +25,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
 <meta property="article:published_time" content="2023-04-10T11:06:10.000Z">
-<meta property="article:modified_time" content="2023-04-24T04:14:23.770Z">
+<meta property="article:modified_time" content="2023-04-24T06:59:37.561Z">
 <meta property="article:author" content="xue bai">
 <meta property="article:tag" content="Midjourney">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~6.12K
+                        ~6.25K
                     
                     字
                 </li>
@@ -233,7 +233,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1682309663770"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1682319577561"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -514,7 +514,7 @@
 </tbody></table>
 <p><img src="/images/image-20230424113107952.png"></p>
 <p><img src="/images/image-20230424113120666.png"></p>
-<h2 id="七、复合提示"><a href="#七、复合提示" class="headerlink" title="七、复合提示"></a>七、复合提示</h2><p>比如hot dog（热狗）这种词，如果想分开表示hot 和 dog （一只很热的狗），那就需要复合提示。</p>
+<h2 id="八、复合提示"><a href="#八、复合提示" class="headerlink" title="八、复合提示"></a>八、复合提示</h2><p>比如hot dog（热狗）这种词，如果想分开表示hot 和 dog （一只很热的狗），那就需要复合提示。</p>
 <p>复合提示使用<code>::</code>表示</p>
 <h3 id="比如："><a href="#比如：" class="headerlink" title="比如："></a>比如：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hot dog</span><br></pre></td></tr></table></figure>
 
@@ -534,7 +534,13 @@
 
 <p><img src="https://cdn.document360.io/3040c2b6-fead-4744-a3a9-d56d621c6c7e/Images/Documentation/MJ_Multi_cup-cake-illustration.jpg"></p>
 <p><em>杯子</em> 、 <em>蛋糕</em> 和 <em>插图</em> 被分开考虑，制作一个杯子里的蛋糕，带有花朵和蝴蝶等常见的插图元素。</p>
-<h2 id="八、排列提升"><a href="#八、排列提升" class="headerlink" title="八、排列提升"></a>八、排列提升</h2><p>可以同时处理多个作业，这个我暂时用不到，所以略过了。</p>
+<h3 id="权重"><a href="#权重" class="headerlink" title="权重"></a>权重</h3><p>复合提示可以赋予权重<br>如<code>hot::2 dog</code>，意思是hot的重要性比dog大两倍，又可以写成<code>hot::2 dog::1</code></p>
+<ul>
+<li>v4可以接受小数做权重，v1-3只能接受整数，默认为1。</li>
+<li>可以接受负数权重，但所有权重的总和必须为正数。</li>
+<li>负数权重可以用来去掉某些元素<h2 id="九、排列提升"><a href="#九、排列提升" class="headerlink" title="九、排列提升"></a>九、排列提升</h2></li>
+</ul>
+<p>可以同时处理多个作业，这个我暂时用不到，所以略过了。</p>
 <p>简单的用法就是用大括号<code>&#123;&#125;</code>分割选项列表，然后快速创建多个作业，最多可以同时创建40个。</p>
 <h3 id="比如：-1"><a href="#比如：-1" class="headerlink" title="比如："></a>比如：</h3><p><code>/imagine prompt</code> <code>a &#123;red, green, yellow&#125; bird</code></p>
 <p>创建并处理三个作业。</p>
@@ -649,7 +655,7 @@
                     <a class="tag-none-link" href="/tags/Midjourney/" rel="tag">Midjourney</a>
                 </div>
                 <div class="pull-date">
-                    <!-- <time datetime="2023-04-24T04:14:23.770Z" itemprop="dateModified">最后编辑：2023-04-24</time> -->
+                    <!-- <time datetime="2023-04-24T06:59:37.561Z" itemprop="dateModified">最后编辑：2023-04-24</time> -->
                 </div>
             </div>
         </footer>
