@@ -235,9 +235,9 @@ site_verify:
 friends:
   href: "friends"
   page:
-    title: "好伙伴们"
+    title: "工具链接"
     comments: false
-    description: "好伙伴们在哪里~"
+    description: "方便我访问的链接们~"
     updated: "2021-01-18"
   list:
   # - name: "猫猫①号"

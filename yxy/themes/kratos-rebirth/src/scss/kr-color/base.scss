@@ -334,8 +334,9 @@ span.mjx-chtml.MJXc-display {
 }
 
 .kratos-cover.kratos-cover-2 {
-    background-size: 100% 100%;
+    background-size: cover;
     background-image: $banner_image !important;
+    // opacity: .88;
 }
 
 @media(min-width:768px) {
@@ -345,8 +346,43 @@ span.mjx-chtml.MJXc-display {
         background-position: 100% 30%;
         background-image: $background-image;
     }
+    // #kratos-blog-post {
+    //     background-attachment: fixed;
+    //     background-image: $background-image-web;
+    //     background-position: top;
+    //     background-repeat: no-repeat;
+    //     background-size: cover;
+    //     padding: 2em 0 1em;
+    // }
+    #kratos-mobile-topnav {
+        background-image: $banner_image;
+    }
+    .kratos-topnav {
+        background-size: cover;
+        background-repeat: no-repeat;
+        // background-position: 100% 30%;
+        // background-image: $banner_image !important;
+    }
 }
 
+@media(max-width:768px) {
+    #kratos-page {
+        background-attachment: fixed;
+        background-image: $background-image-web;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #kratos-mobile-topnav {
+        background-image: $banner_image;
+    }
+}
+
+#kratos-menu-wrap {
+    .kratos-topnav {
+        background-image: $banner-web !important;
+    }
+}
 .post-comments.bg-image textarea {
     background: $comment-background-image right bottom no-repeat!important;
 }

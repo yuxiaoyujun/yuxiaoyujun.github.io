@@ -1061,9 +1061,11 @@ table {
   left: 0;
   width: 100%;
   z-index: 2;
-  background: rgba(40, 42, 44, .6);
+  // background: rgba(40, 42, 44, .6) !important;
   top: 0;
   transition: .5s all;
+  // background-image: url(/images/banner_dark.png) !important;
+  background-size: 100% !important;
 }
 
 #kratos-desktop-topnav {
@@ -1154,7 +1156,7 @@ body.scroll-down.nav-up #kratos-desktop-topnav {
     height: 800px;
 
     &.kratos-hero-2 {
-      height: 320px;
+      height: 390px;
     }
   }
 
@@ -1169,7 +1171,7 @@ body.scroll-down.nav-up #kratos-desktop-topnav {
     }
 
     &.kratos-cover-2 {
-      height: 320px;
+      height: 390px;
       background-position: top;
     }
 
@@ -1268,7 +1270,9 @@ body.scroll-down.nav-up #kratos-desktop-topnav {
     background-color: #51aded;
     color: #fff !important;
   }
-
+  > span.page-number, > a {
+    border-radius: 5px;
+  }
   .page-number, .extend {
     min-width: 36px;
     height: 36px;
@@ -1366,7 +1370,10 @@ ul.kratos-post-meta {
   border-radius: 0;
   -webkit-transition: all .6s ease;
   transition: all .6s ease;
-
+  overflow: hidden;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  
   &.kratos-post-inner {
     margin-bottom: 0;
   }
@@ -1975,7 +1982,8 @@ ul.kratos-post-meta {
     padding: 20px 25px;
     background-color: #fff;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    border-radius: 0;
+    border-radius: 10px;
+    overflow: hidden;
   
     &:last-child {
       margin: 0;
@@ -2040,6 +2048,8 @@ ul.kratos-post-meta {
         padding-left: 0;
         padding-right: 0;
         padding-top: 0;
+        overflow: hidden;
+        border-radius: 10px;
     
         .photo-background {
           -webkit-background-size: cover;
@@ -2328,7 +2338,10 @@ body.scroll-down .kr-tool {
 #footer {
   background: #23282d;
   padding-top: 40px;
-
+  background-image: url('/images/footer.png');
+  background-position: bottom;
+  background-size: cover;
+  background-position: bottom center;
   &.ap-lrc {
     padding-bottom: 32px;
   }
@@ -2568,7 +2581,15 @@ body.scroll-down .kr-tool {
   }
 
   #kratos-blog-post {
+    background-attachment: fixed;
+    // background-image: url(/images/bg.webp) !important;    
+    background-repeat: no-repeat;
     padding: 2em 0 1em;
+    // background-position: top center;
+    // background-size: cover;
+
+    background-size: 320%;
+    background-position: 3% center;
   }
 
   .kratos-post-meta span {
@@ -2588,7 +2609,7 @@ body.scroll-down .kr-tool {
   }
 
   h1.kratos-entry-title.text-center {
-    font-size: 36px !important;
+    font-size: 30px !important;
   }
 
   .kratos-entry-thumb-new {

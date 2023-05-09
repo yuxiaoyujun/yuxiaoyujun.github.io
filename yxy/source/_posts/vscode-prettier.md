@@ -1,7 +1,7 @@
 ---
 title: '【prettier】vscode + prettier自动格式化'
 date: 2022-11-21 23:11:49
-tags: babel 
+tags: prettier 
 categories:
   - 程序员的自我修养
 ---

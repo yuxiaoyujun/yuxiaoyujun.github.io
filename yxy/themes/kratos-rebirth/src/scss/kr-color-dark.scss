@@ -1,6 +1,8 @@
 $banner_image: url('../images/banner_dark.png');
-$about_image: url('../images/about.webp');
+$about_image: url('../images/banner_dark.png');
 $background-image: url('../images/bg_dark.png');
+$background-image-web: url('../images/bg_web_dark.png');
+$banner-web: url('../images/banner_dark_web.png');
 $comment-background-image: url("../images/comment_dark.webp");
 $select_text: #333;
 $select_text_bg: #ccc;
@@ -13,8 +15,10 @@ $tag_background: #252d38df;
 $card_background: #282c34dd;
 $page_background: #181c27;
 $info_background: #3c495bbb;
-$navbar_desktop: #181c27cc;
-$navbar_mobile: #16171ae6;
+$navbar_desktop: #181c274a;
+$navbar_mobile: #16171a6c;
+$test: #ff0000;
+
 @import './kr-color/base.scss';
 
 // for Gitalk
