@@ -2735,6 +2735,12 @@ body.scroll-down .kr-tool {
   #kratos-widget-area .widget {
     background-color: rgba(255, 255, 255, .8);
   }
+  .widget-kratos-about,widget-kratos-categories {
+    box-shadow: 0px 0px 20px 5px #835f505e;
+  }
+  .kratos-start{
+    box-shadow: 0px 0px 20px 5px #835f505e;
+  }
 }
 
 @media(min-width:768px) and (max-width:991px) {

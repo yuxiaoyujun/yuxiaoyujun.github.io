@@ -5,7 +5,7 @@ tags:
   - 生活
   - 绘画
 categories:
-  - 日记
+  - 日常
 ---
   <meta name="referrer" content="no-referrer">
 

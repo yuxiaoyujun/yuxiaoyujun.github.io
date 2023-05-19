@@ -185,7 +185,7 @@ import {useState, useRef, useMemo} from "react";
 import UseMemoChild from "./UseMemoChild";
 
 export default function UseMemoFather() {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
     const [times, setTimes] = useState(0);
     const useMemoRef = useRef(0);
 
