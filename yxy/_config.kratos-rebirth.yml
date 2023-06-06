@@ -78,6 +78,10 @@ vendors:
 
 friends:
   list:
+  - name: "Midjourney结果图"
+    bio: "可以看看别人生成的图，然后可以复制关键词吖什么的"
+    avatar: "../images/midjourney.jpeg"
+    link: "https://www.midjourney.com/showcase/recent/"
   - name: "chatGpt"
     bio: "ChatGPT是由OpenAI开发的一个人工智能聊天机器人程序，于2022年11月推出。该程序使用基于GPT-3.5架构的大型语言模型并通过强化学习进行训练。"
     avatar: "../images/chatGpt.png"
@@ -145,6 +149,7 @@ gitalk:
   owner: 'yuxiaoyujun'
   admin: 
     - 'yuxiaoyujun'
+  # id: {{ location.pathname }}  # 默认id为页面完整链接，由于名称超过50字，gitalk无法在issus中生成评论，所以id指定为pathname，能短一点点
   distractionFreeMode: false
 
 jsconfig:
