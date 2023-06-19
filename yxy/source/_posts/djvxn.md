@@ -5,6 +5,7 @@ categories:
   - 程序员的自我修养
 ---
 
+
 使用服务商提供的梯子，访问chatgpt时经常会报
 
 > too many requests in 1 hour
@@ -120,7 +121,13 @@ curl https://get.acme.sh | sh ~/.acme.sh/acme.sh --register-account -m example@x
 
   ![](/images/image-20230602144942812.png)
 
-6. 安装X-UI面板，并通过终端的界面，设置用户名、密码、端口等等。
+
+
+下面应该就是违规的内容了。
+国内不能宣传这个，所以删掉吧。
+
+<!--
+5. 安装X-UI面板，并通过终端的界面，设置用户名、密码、端口等等。
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
@@ -129,6 +136,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 使用方法是输入x-ui，然后输入对应的命令，根据命令提示进行设置，这里就不操作了。
 
 ![](/images/image-20230602112659353.png)
+
 
 ## 五、在浏览器中访问X-UI面板
 
@@ -143,6 +151,10 @@ bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 ![](/images/image-20230602111206014.png)
 
 ![](/images/image-20230602111309441.png)
+
+
+
+
 
 ## 六、安装基于v2ray核心的GUI工具
 
@@ -177,3 +189,5 @@ bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 然后就可以访问外站了，速度飞快，但是不可以干坏事。
 
 ![](/images/image-20230602112227127.png)
+
+-->
