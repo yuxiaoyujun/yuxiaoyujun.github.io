@@ -19,13 +19,13 @@
   <meta name="description" content="使用服务商提供的梯子，访问chatgpt时经常会报  too many requests in 1 hour  由于服务商提供的节点多数是共享的，一个节点可能有n个人同时使用。那么chatgpt会针对这个节点的整体访问次数进行检测并限制。 原先还好些，连续提问没什么问题。最近只要提问一两次就提示访问次数过多了。所以才想着自己购买服务器搭建一个私人专属的vpn。阿里云的轻量服务器一台一个月只要二十多">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【梯子】如何自己搭建科学上网的环境">
-<meta property="og:url" content="https://yuxiaoyujun.github.io/2023/06/01/djvpn/index.html">
+<meta property="og:url" content="https://yuxiaoyujun.github.io/2023/06/01/djvxn/index.html">
 <meta property="og:site_name" content="域小鱼的私人地盘">
 <meta property="og:description" content="使用服务商提供的梯子，访问chatgpt时经常会报  too many requests in 1 hour  由于服务商提供的节点多数是共享的，一个节点可能有n个人同时使用。那么chatgpt会针对这个节点的整体访问次数进行检测并限制。 原先还好些，连续提问没什么问题。最近只要提问一两次就提示访问次数过多了。所以才想着自己购买服务器搭建一个私人专属的vpn。阿里云的轻量服务器一台一个月只要二十多">
 <meta property="og:locale">
 <meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
 <meta property="article:published_time" content="2023-06-01T09:36:06.000Z">
-<meta property="article:modified_time" content="2023-06-02T07:00:30.862Z">
+<meta property="article:modified_time" content="2023-06-19T03:39:13.801Z">
 <meta property="article:author" content="xue bai">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://yuxiaoyujun.github.io/images/logo.png">
@@ -205,7 +205,7 @@
 
             <article itemscope itemtype="https://schema.org/Article">
     
-    <link itemprop="mainEntityOfPage" href="https://yuxiaoyujun.github.io/2023/06/01/djvpn/">
+    <link itemprop="mainEntityOfPage" href="https://yuxiaoyujun.github.io/2023/06/01/djvxn/">
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
@@ -221,7 +221,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~2.06K
+                        ~1.53K
                     
                     字
                 </li>
@@ -232,7 +232,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1685689230862"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1687145953801"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -286,7 +286,7 @@
 <ol>
 <li>开启防火墙，完成后重启服务器</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -P INPUT ACCEPT iptables -P FORWARD ACCEPT iptables -P OUTPUT ACCEPT iptables -F apt-get purge netfilter-persistentCopy</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -P INPUT ACCEPT </span><br><span class="line">iptables -P FORWARD ACCEPT </span><br><span class="line">iptables -P OUTPUT ACCEPT </span><br><span class="line">iptables -F apt-get purge netfilter-persistent</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>申请SSL证书</li>
@@ -310,16 +310,18 @@
 <p><img src="/images/image-20230602144942812.png"></p>
 </li>
 </ul>
-<ol start="6">
-<li>安装X-UI面板，并通过终端的界面，设置用户名、密码、端口等等。</li>
-</ol>
+<p>下面应该就是违规的内容了。<br>国内不能宣传这个，所以删掉吧。</p>
+<!--
+5. 安装X-UI面板，并通过终端的界面，设置用户名、密码、端口等等。
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
 
 <p>使用方法是输入x-ui，然后输入对应的命令，根据命令提示进行设置，这里就不操作了。</p>
 <p><img src="/images/image-20230602112659353.png"></p>
 <h2 id="五、在浏览器中访问X-UI面板"><a href="#五、在浏览器中访问X-UI面板" class="headerlink" title="五、在浏览器中访问X-UI面板"></a>五、在浏览器中访问X-UI面板</h2><p>在浏览器中输入<code>ip:端口号</code>或者<code>域名:端口号</code>访问链接</p>
 <p>如，我配置的域名为<code>www.abc.com</code>，配置的端口为1111，那么就是<a target="_blank" rel="noopener" href="http://www.abc.com:1111/">www.abc.com:1111</a></p>
-<p>输入你设置的用户名、密码，登录成功后，点击 “入站列表 - 详细信息 - 查看”，点击“复制链接”</p>
+<p>输入你设置的用户名、密码，登录成功后，点击“+”，并确认。</p>
+<p>点击 “入站列表 - 详细信息 - 查看”，点击“复制链接”</p>
 <p><img src="/images/image-20230602111206014.png"></p>
 <p><img src="/images/image-20230602111309441.png"></p>
 <h2 id="六、安装基于v2ray核心的GUI工具"><a href="#六、安装基于v2ray核心的GUI工具" class="headerlink" title="六、安装基于v2ray核心的GUI工具"></a>六、安装基于v2ray核心的GUI工具</h2><p>下载链接：<a target="_blank" rel="noopener" href="https://v2xtls.org/v2ray-mac%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8B%E8%BD%BD/">点击这里</a></p>
@@ -338,6 +340,7 @@
 <p><img src="/images/image-20230602112123713.png"></p>
 <p>然后就可以访问外站了，速度飞快，但是不可以干坏事。</p>
 <p><img src="/images/image-20230602112227127.png"></p>
+<p>–&gt;</p>
 </div>
         </div>
         
@@ -393,7 +396,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "https://yuxiaoyujun.github.io/2023/06/01/djvpn/",
+                text: "https://yuxiaoyujun.github.io/2023/06/01/djvxn/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -405,7 +408,7 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "https://yuxiaoyujun.github.io/2023/06/01/djvpn/";
+            const hostUrl       = "https://yuxiaoyujun.github.io/2023/06/01/djvxn/";
             const title         = "「【梯子】如何自己搭建科学上网的环境」";
             const excerpt       = `使用服务商提供的梯子，访问chatgpt时经常会报
 
@@ -433,7 +436,7 @@ too many requests in 1 hour
                     
                 </div>
                 <div class="pull-date">
-                    <!-- <time datetime="2023-06-02T07:00:30.862Z" itemprop="dateModified">最后编辑：2023-06-02</time> -->
+                    <!-- <time datetime="2023-06-19T03:39:13.801Z" itemprop="dateModified">最后编辑：2023-06-19</time> -->
                 </div>
             </div>
         </footer>
@@ -456,8 +459,8 @@ too many requests in 1 hour
         const init = () => {
             console.log('Gitalk loading...');
             const gitalk = new Gitalk(Object.assign({
-                id: '/2023/06/01/djvpn/',
-                path: '/2023/06/01/djvpn/'
+                id: '/2023/06/01/djvxn/',
+                path: '/2023/06/01/djvxn/'
             }, JSON.parse('{"clientID":"628850ddd59360af6fad","clientSecret":"f8dd6f68eace9e06f1a51496ff85dc8a4f48cef1","repo":"yuxiaoyujun.github.io","owner":"yuxiaoyujun","admin":["yuxiaoyujun"],"distractionFreeMode":false}')));
 
             gitalk.render('gitalk-container');
@@ -553,7 +556,7 @@ too many requests in 1 hour
         
           
           
-            <a class="list-group-item" href="/2023/06/01/djvpn/"><i class="fa  fa-book"></i> 【梯子】如何自己搭建科学上网的环境</a>
+            <a class="list-group-item" href="/2023/06/01/djvxn/"><i class="fa  fa-book"></i> 【梯子】如何自己搭建科学上网的环境</a>
             
           
         
