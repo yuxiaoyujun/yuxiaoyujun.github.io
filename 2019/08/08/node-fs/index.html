@@ -16,16 +16,16 @@
   
     <meta name="keywords" content="lv2, node" />
   
-  <meta name="description" content="三、 fs模块1. 简介fs模块可以实现创建文件、删除文件、修改&#x2F;写入文件、读取文件、移动文件等，还可以操作文件夹。可以实现与硬盘有关的操作。 2. fs.writeFile()语法：fs.wirteFile(file,data,options?,callback(err)? 参数：  File 文件名，文件若不存在，会被自动创建 data 写入的数据 options 可选的选项 callback">
+  <meta name="description" content="三、 fs模块1. 简介fs模块可以实现创建文件、删除文件、修改&#x2F;写入文件、读取文件、移动文件等，还可以操作文件夹。可以实现与硬盘有关的操作。 2. fs.writeFile() 写入文件（异步）语法：fs.writeFile(file,data,options?,callback(err)?) 参数：  File 文件名，文件若不存在，会被自动创建 data 写入的数据 options 可选的选">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【nodejs】基础总结（二）fs模块">
 <meta property="og:url" content="https://yuxiaoyujun.github.io/2019/08/08/node-fs/index.html">
 <meta property="og:site_name" content="域小鱼的私人地盘">
-<meta property="og:description" content="三、 fs模块1. 简介fs模块可以实现创建文件、删除文件、修改&#x2F;写入文件、读取文件、移动文件等，还可以操作文件夹。可以实现与硬盘有关的操作。 2. fs.writeFile()语法：fs.wirteFile(file,data,options?,callback(err)? 参数：  File 文件名，文件若不存在，会被自动创建 data 写入的数据 options 可选的选项 callback">
+<meta property="og:description" content="三、 fs模块1. 简介fs模块可以实现创建文件、删除文件、修改&#x2F;写入文件、读取文件、移动文件等，还可以操作文件夹。可以实现与硬盘有关的操作。 2. fs.writeFile() 写入文件（异步）语法：fs.writeFile(file,data,options?,callback(err)?) 参数：  File 文件名，文件若不存在，会被自动创建 data 写入的数据 options 可选的选">
 <meta property="og:locale">
 <meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
 <meta property="article:published_time" content="2019-08-08T09:20:37.000Z">
-<meta property="article:modified_time" content="2023-07-13T15:15:17.495Z">
+<meta property="article:modified_time" content="2023-09-26T07:56:07.445Z">
 <meta property="article:author" content="xue bai">
 <meta property="article:tag" content="node">
 <meta property="article:tag" content="lv2">
@@ -223,7 +223,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        218
+                        ~5.69K
                     
                     字
                 </li>
@@ -234,30 +234,201 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1689261317495"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1695714967445"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
             <hr />
             <div itemprop="articleBody"><h2 id="三、-fs模块"><a href="#三、-fs模块" class="headerlink" title="三、 fs模块"></a>三、 fs模块</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><p>fs模块可以实现创建文件、删除文件、修改/写入文件、读取文件、移动文件等，还可以操作文件夹。可以实现与硬盘有关的操作。</p>
-<h3 id="2-fs-writeFile"><a href="#2-fs-writeFile" class="headerlink" title="2. fs.writeFile()"></a>2. fs.writeFile()</h3><p>语法：<code>fs.wirteFile(file,data,options?,callback(err)?</code></p>
-<p>参数：</p>
+<h3 id="2-fs-writeFile-写入文件（异步）"><a href="#2-fs-writeFile-写入文件（异步）" class="headerlink" title="2. fs.writeFile() 写入文件（异步）"></a>2. fs.writeFile() 写入文件（异步）</h3><p><strong>语法</strong>：<code>fs.writeFile(file,data,options?,callback(err)?)</code></p>
+<p><strong>参数</strong>：</p>
 <ul>
 <li>File 文件名，文件若不存在，会被自动创建</li>
 <li>data 写入的数据</li>
 <li>options 可选的选项</li>
-<li>callback 回调</li>
+<li>callback 回调，参数为err，若成功则err返回为null</li>
 </ul>
-<p>使用：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&quot;./test.txt&quot;</span>, <span class="string">&quot;随便写一段&quot;</span>, <span class="keyword">function</span> (<span class="params">err</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (!err) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;写入成功&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;先执行&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20230829182854658.png"></p>
+<p><strong>注意点</strong>：</p>
+<ul>
+<li><code>fs.writeFile()</code>是一个异步方法。</li>
+</ul>
+<h3 id="3-fs-writeFileSync-写入文件（同步）"><a href="#3-fs-writeFileSync-写入文件（同步）" class="headerlink" title="3. fs.writeFileSync() 写入文件（同步）"></a>3. fs.writeFileSync() 写入文件（同步）</h3><p><strong>语法</strong>：<code>fs.writeFileSync(file,data,options?)</code></p>
+<p><strong>参数</strong>：</p>
+<ul>
+<li>File 文件名，文件若不存在，会被自动创建</li>
+<li>data 写入的数据</li>
+<li>options 可选的选项</li>
+</ul>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">writeFileSync</span>(<span class="string">&quot;./test.txt&quot;</span>, <span class="string">&quot;随便写一段&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;后执行&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意点</strong>：</p>
+<ul>
+<li><p><code>fs.writeFileSync()</code>是一个同步方法，会逐行向下执行。</p>
+</li>
+<li><p>它和<code>fs.writeFile()</code>不同的地方在于没有回调函数。</p>
+</li>
+</ul>
+<h3 id="4-fs-appendFile-追加文件内容"><a href="#4-fs-appendFile-追加文件内容" class="headerlink" title="4. fs.appendFile() 追加文件内容"></a>4. fs.appendFile() 追加文件内容</h3><p><strong>语法</strong>：<code>fs.writeFile(file,data,options?,callback(err)?</code></p>
+<p><strong>参数</strong>：</p>
+<ul>
+<li>File 文件名，文件若不存在，不会被自动创建</li>
+<li>data 写入的数据</li>
+<li>options 可选的选项</li>
+</ul>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">appendFile</span>(<span class="string">&quot;./test.txt&quot;</span>, <span class="string">&quot;\r\n多加一段&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20230829191437742.png"> </p>
+<p><strong>注意点</strong>：</p>
+<ul>
+<li><p>参数与<code>fs.writeFile()</code> 一致</p>
+</li>
+<li><p><code>fs.writeFile()</code>也可以实现追加内容。只需要将第三个参数的option追加</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;./test.txt&#x27;</span>,<span class="string">&#x27;\r\n多加一行&#x27;</span>,&#123;<span class="attr">flag</span>:<span class="string">&#x27;a&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
 
 
 
+<h3 id="5-fs-appendFileSync-追加文件内容（同步）"><a href="#5-fs-appendFileSync-追加文件内容（同步）" class="headerlink" title="5. fs.appendFileSync() 追加文件内容（同步）"></a>5. fs.appendFileSync() 追加文件内容（同步）</h3><p>略，参数与<code>fs.writeFileSync() </code>一致，</p>
+<p><strong>注意点</strong>：</p>
+<ul>
+<li>文件若不存在，不会被自动创建。</li>
+</ul>
+<h3 id="6-fs-createWriteStream"><a href="#6-fs-createWriteStream" class="headerlink" title="6. fs.createWriteStream()"></a>6. fs.createWriteStream()</h3><p><strong>语法</strong>：</p>
+<ul>
+<li><code>fs.createWriteStream(file)</code> 创建流</li>
+<li><code>fs.write(content: string)</code> 写入流</li>
+<li><code>fs.close()</code> 关闭流（可选）</li>
+</ul>
+<p><strong>参数</strong>：</p>
+<ul>
+<li>File 文件名，文件若不存在，会被自动创建</li>
+</ul>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> cws = fs.<span class="title function_">createWriteStream</span>(<span class="string">&quot;./test.txt&quot;</span>);</span><br><span class="line">cws.<span class="title function_">write</span>(<span class="string">&quot;aaa\r\n&quot;</span>);</span><br><span class="line">cws.<span class="title function_">write</span>(<span class="string">&quot;bbb\r\n&quot;</span>);</span><br><span class="line">cws.<span class="title function_">write</span>(<span class="string">&quot;ccc\r\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">cws.<span class="title function_">close</span>(); <span class="comment">// 不写也没关系，因为在脚本执行完毕后，会自动关闭流</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20230830120353420.png"></p>
+<p><strong>注意点</strong>：</p>
+<ul>
+<li><code>fs.close()</code>可以不调用</li>
+<li>应用场景是，比如安装软件，安装软件的过程就是一个文件写入硬盘的过程。再比如写logs等等。</li>
+</ul>
+<h3 id="7-fs-readFile-读取文件（异步）"><a href="#7-fs-readFile-读取文件（异步）" class="headerlink" title="7. fs.readFile() 读取文件（异步）"></a>7. fs.readFile() 读取文件（异步）</h3><p><strong>语法</strong>：<code>fs.readFile(file,options?,callback(err,data)?)</code></p>
+<p><strong>参数</strong>：</p>
+<ul>
+<li>File 文件名，文件若不存在，会被自动创建</li>
+<li>options 可选的选项</li>
+<li>callback 回调，参数为err，若成功则err返回为null</li>
+</ul>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&quot;test.txt&quot;</span>, <span class="keyword">function</span> (<span class="params">err, data</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> (!err) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">toString</span>()); <span class="comment">// data是buffer，需要将buffer转为字符串</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20230830181214440.png"></p>
+<p><strong>注意点</strong>：</p>
+<h3 id="8-fs-readFileSync-读取文件（同步）"><a href="#8-fs-readFileSync-读取文件（同步）" class="headerlink" title="8. fs.readFileSync() 读取文件（同步）"></a>8. fs.readFileSync() 读取文件（同步）</h3><p>略，基本一致，就是没有回调函数</p>
+<h3 id="9-fs-createReadStream-流式读取"><a href="#9-fs-createReadStream-流式读取" class="headerlink" title="9. fs.createReadStream() 流式读取"></a>9. fs.createReadStream() 流式读取</h3><p><strong>语法</strong>：<code>fs.createReadStream(file)</code></p>
+<p><strong>参数</strong>：</p>
+<ul>
+<li>File 文件名，文件若不存在，会被自动创建</li>
+<li>options 可选的选项</li>
+<li>callback 回调，参数为err，若成功则err返回为null</li>
+</ul>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> crs = fs.<span class="title function_">createReadStream</span>(<span class="string">&quot;./test.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 on 触发 data 事件</span></span><br><span class="line"><span class="comment">// &#x27;data&#x27; 的意思是 绑定 data事件。默认一次读取的一块为65536</span></span><br><span class="line">crs.<span class="title function_">on</span>(<span class="string">&quot;data&quot;</span>, <span class="function">(<span class="params">chunk</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(chunk.<span class="property">length</span>); <span class="comment">// 查看一次读取的长度</span></span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(chunk.<span class="title function_">toString</span>());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 end 方法结束读取事件（非必要）</span></span><br><span class="line">crs.<span class="title function_">on</span>(<span class="string">&quot;end&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;完成&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意点</strong>：</p>
+<ul>
+<li>流式读取，读取的是文件的一部分内容，普通的读取是一次性读取全部内容。一次读取长度默认为65536字节。</li>
+<li>chunk.length可以查看读取的长度</li>
+<li>该方法一般用于读取大文件，它占用内存空间比直接用readFile要小。</li>
+<li>通过以下代码，可以看两种读取方式所占用内存的不同大小</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> process = <span class="built_in">require</span>(<span class="string">&quot;process&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> crs = fs.<span class="title function_">createReadStream</span>(<span class="string">&quot;./test.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 on 触发 data 事件</span></span><br><span class="line"><span class="comment">// &#x27;data&#x27; 的意思是 绑定 data事件。默认一次读取的一块为65536</span></span><br><span class="line"></span><br><span class="line">crs.<span class="title function_">on</span>(<span class="string">&quot;data&quot;</span>, <span class="function">(<span class="params">chunk</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(chunk.<span class="property">length</span>); <span class="comment">// 查看一次读取的长度</span></span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(chunk.<span class="title function_">toString</span>());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 end 方法结束读取事件（非必要）</span></span><br><span class="line">crs.<span class="title function_">on</span>(<span class="string">&quot;end&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;完成&quot;</span>);</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(process.<span class="title function_">memoryUsage</span>()); <span class="comment">// 查看内存状况，rss就是所占用的内存空间，33095680</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// const rd = fs.readFile(&quot;./test.txt&quot;, (err, data) =&gt; &#123;</span></span><br><span class="line"><span class="comment">// 	if (!err) &#123;</span></span><br><span class="line"><span class="comment">// 		console.log(data.toString());</span></span><br><span class="line"><span class="comment">// 		console.log(process.memoryUsage()); // 查看内存状况，rss就是所占用的内存空间，53690368</span></span><br><span class="line"><span class="comment">// 	&#125;</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br></pre></td></tr></table></figure>
 
 
 
+<h3 id="10-fs-rename-oldPath-newPath-callback-重命名文件（异步）"><a href="#10-fs-rename-oldPath-newPath-callback-重命名文件（异步）" class="headerlink" title="10. fs.rename(oldPath, newPath, callback) 重命名文件（异步）"></a>10. fs.rename(oldPath, newPath, callback) 重命名文件（异步）</h3><p><strong>语法</strong>：<code>fs.rename(oldPath: string,newPath: string,callback?)</code></p>
+<p><strong>参数</strong>：</p>
+<ul>
+<li>oldPath 源文件路径，如./test.txt</li>
+<li>newPath 源文件路径的新名称，如./testRename.txt</li>
+<li>callback 回调，参数为err，若成功则err返回为null</li>
+</ul>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">rename</span>(<span class="string">&quot;./test.txt&quot;</span>, <span class="string">&quot;./testRename.txt&quot;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (!err) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;成功&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+
+
+<h3 id="11-fs-renameSync-oldPath-newPath-重命名文件（同步）"><a href="#11-fs-renameSync-oldPath-newPath-重命名文件（同步）" class="headerlink" title="11. fs.renameSync(oldPath, newPath) 重命名文件（同步）"></a>11. fs.renameSync(oldPath, newPath) 重命名文件（同步）</h3><p>略</p>
+<h3 id="12-文件删除"><a href="#12-文件删除" class="headerlink" title="12. 文件删除"></a>12. 文件删除</h3><p>在nodejs中，文件删除有两种方式</p>
+<ul>
+<li><code>fs.unlink(filename)</code> 与 <code>fs.unlinkSync(filename)</code></li>
+<li>``fs.rm(filename)<code>与</code>fs.rmSync(filename)`</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">rm</span>(<span class="string">&quot;./test.txt&quot;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (!err) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;成功&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注： <code>fs.rm</code>方法在14.4版本以上支持</p>
+<h3 id="13-mkdir-dir-option-callback-和mkdirSync-dir-option-callback-创建文件夹"><a href="#13-mkdir-dir-option-callback-和mkdirSync-dir-option-callback-创建文件夹" class="headerlink" title="13. mkdir(dir, option?,callback) 和mkdirSync(dir, option?,callback) 创建文件夹"></a>13. mkdir(dir, option?,callback) 和mkdirSync(dir, option?,callback) 创建文件夹</h3><p><strong>语法</strong>: </p>
+<ul>
+<li>fs.mkdir(path,option,callback)</li>
+</ul>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">mkdir</span>(<span class="string">&quot;./test/test1/test.txt&quot;</span>, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (!err) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;成功&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="14-读取文件夹-readdir与readdirSync"><a href="#14-读取文件夹-readdir与readdirSync" class="headerlink" title="14. 读取文件夹 readdir与readdirSync"></a>14. 读取文件夹 readdir与readdirSync</h3><p><strong>语法</strong>: </p>
+<ul>
+<li>fs.mkdir(path,option,callback)</li>
+</ul>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readdir</span>(<span class="string">&quot;./test&quot;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (!err) <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="15-删除文件夹-rmdir-与rmdirSync"><a href="#15-删除文件夹-rmdir-与rmdirSync" class="headerlink" title="15. 删除文件夹 rmdir() 与rmdirSync()"></a>15. 删除文件夹 rmdir() 与rmdirSync()</h3><p><strong>语法</strong>: </p>
+<ul>
+<li>fs.mkdir(path,option,callback)</li>
+</ul>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">rm</span>(<span class="string">&quot;./test&quot;</span>, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (!err) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;删除成功&quot;</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意点</strong>： </p>
+<ol>
+<li>支持递归删除</li>
+<li>可能被废除，不建议使用</li>
+<li>rm方法不仅可以用来删除文件。</li>
+<li><code>&#123; recursive: true &#125;</code>的意思是级联删除</li>
+</ol>
+<h3 id="16-查看文件状态-fs-stat-file-callback"><a href="#16-查看文件状态-fs-stat-file-callback" class="headerlink" title="16. 查看文件状态 fs.stat(file,callback)"></a>16. 查看文件状态 fs.stat(file,callback)</h3><p><strong>语法</strong>: </p>
+<ul>
+<li>fs.stat(file,callback)</li>
+</ul>
+<p><strong>使用</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">stat</span>(<span class="string">&quot;./&quot;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (!err) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">isDirectory</span>());</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">isFile</span>());</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;操作失败了！&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>结果</strong>：</p>
+<p><img src="/images/image-20230926154400250.png"></p>
+<p><strong>注意点</strong>：</p>
+<ol>
+<li><p>返回的data参数中，<code>isFile</code> 方法表示判断是否为文件。<code>isDirectory</code> 方法表示判断是否为文件夹。</p>
+</li>
+<li><p>一般在用于制作资源管理器时，文件名可以使用<code>readdir</code>和<code>readfile</code>的方式读取，而具体信息则使用<code>stat</code>方式读取</p>
+</li>
+</ol>
+<p><img src="/images/image-20230926154800545.png"></p>
+<h3 id="17-dirname-来表示绝对路径"><a href="#17-dirname-来表示绝对路径" class="headerlink" title="17.  __dirname 来表示绝对路径"></a>17.  __dirname 来表示绝对路径</h3><p>表示<code>__dirname</code> 所在<strong>文件夹</strong>的绝对路径</p>
 </div>
         </div>
         
@@ -328,7 +499,7 @@
             const hostUrl       = "https://yuxiaoyujun.github.io/2019/08/08/node-fs/";
             const title         = "「【nodejs】基础总结（二）fs模块」";
             const excerpt       = `三、 fs模块1. 简介fs模块可以实现创建文件、删除文件、修改/写入文件、读取文件、移动文件等，还可以操作文件夹。可以实现与硬盘有关的操作。
-2. fs.writeFile()语法：fs.wirteFile(file,data,op...`;
+2. fs.writeFile() 写入文件（异步）语法：fs.writeFile(fil...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -350,7 +521,7 @@
                     <a class="tag-none-link" href="/tags/lv2/" rel="tag">lv2</a>, <a class="tag-none-link" href="/tags/node/" rel="tag">node</a>
                 </div>
                 <div class="pull-date">
-                    <!-- <time datetime="2023-07-13T15:15:17.495Z" itemprop="dateModified">最后编辑：2023-07-13</time> -->
+                    <!-- <time datetime="2023-09-26T07:56:07.445Z" itemprop="dateModified">最后编辑：2023-09-26</time> -->
                 </div>
             </div>
         </footer>
@@ -364,7 +535,7 @@
             
             
             <div class="nav-next clearfix">
-                <a title=" axios的基本使用" href="/2019/11/12/cxy/other/axios/">下一篇 &gt;</a>
+                <a title=" 【nodejs】基础总结（三）path模块" href="/2019/08/09/node-path/">下一篇 &gt;</a>
             </div>
             
         </nav>
@@ -424,7 +595,7 @@
                 文章
             </span>
             <span class="count">
-                146
+                153
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -451,7 +622,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/zbrush/">zbrush</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/">乱七八糟</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%A7%AF%E7%B4%AF/">奇奇怪怪的积累</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E6%A8%A1/">建模</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B0%B4%E4%BB%99%E8%8A%B1%E8%A7%82%E5%AF%9F%E6%97%A5%E8%AE%B0/">水仙花观察日记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/">程序员的自我修养</a><span class="category-list-count">76</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%83%E5%AD%97/">练字</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E7%94%BB/">绘画</a><span class="category-list-count">29</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/zbrush/">zbrush</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/">乱七八糟</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%A7%AF%E7%B4%AF/">奇奇怪怪的积累</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E6%A8%A1/">建模</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B0%B4%E4%BB%99%E8%8A%B1%E8%A7%82%E5%AF%9F%E6%97%A5%E8%AE%B0/">水仙花观察日记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/">程序员的自我修养</a><span class="category-list-count">82</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%83%E5%AD%97/">练字</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E7%94%BB/">绘画</a><span class="category-list-count">30</span></li></ul>
   </aside>
 
 
@@ -460,7 +631,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Midjourney/" style="font-size: 0.71em;">Midjourney</a> <a href="/tags/ai%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">ai绘画</a> <a href="/tags/api/" style="font-size: 0.6em;">api</a> <a href="/tags/axios/" style="font-size: 0.6em;">axios</a> <a href="/tags/babel/" style="font-size: 0.6em;">babel</a> <a href="/tags/blender/" style="font-size: 0.74em;">blender</a> <a href="/tags/css/" style="font-size: 0.69em;">css</a> <a href="/tags/github/" style="font-size: 0.6em;">github</a> <a href="/tags/js/" style="font-size: 0.77em;">js</a> <a href="/tags/jsdelivr/" style="font-size: 0.6em;">jsdelivr</a> <a href="/tags/lv1/" style="font-size: 0.8em;">lv1</a> <a href="/tags/lv2/" style="font-size: 0.69em;">lv2</a> <a href="/tags/lv3/" style="font-size: 0.6em;">lv3</a> <a href="/tags/node/" style="font-size: 0.69em;">node</a> <a href="/tags/npm/" style="font-size: 0.66em;">npm</a> <a href="/tags/pr/" style="font-size: 0.6em;">pr</a> <a href="/tags/prettier/" style="font-size: 0.63em;">prettier</a> <a href="/tags/react/" style="font-size: 0.6em;">react</a>
+        <a href="/tags/Midjourney/" style="font-size: 0.7em;">Midjourney</a> <a href="/tags/ai%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">ai绘画</a> <a href="/tags/api/" style="font-size: 0.6em;">api</a> <a href="/tags/axios/" style="font-size: 0.6em;">axios</a> <a href="/tags/babel/" style="font-size: 0.6em;">babel</a> <a href="/tags/blender/" style="font-size: 0.75em;">blender</a> <a href="/tags/css/" style="font-size: 0.68em;">css</a> <a href="/tags/github/" style="font-size: 0.6em;">github</a> <a href="/tags/js/" style="font-size: 0.78em;">js</a> <a href="/tags/jsdelivr/" style="font-size: 0.6em;">jsdelivr</a> <a href="/tags/lv1/" style="font-size: 0.8em;">lv1</a> <a href="/tags/lv2/" style="font-size: 0.73em;">lv2</a> <a href="/tags/lv3/" style="font-size: 0.6em;">lv3</a> <a href="/tags/node/" style="font-size: 0.73em;">node</a> <a href="/tags/npm/" style="font-size: 0.65em;">npm</a> <a href="/tags/pr/" style="font-size: 0.6em;">pr</a> <a href="/tags/prettier/" style="font-size: 0.63em;">prettier</a> <a href="/tags/react/" style="font-size: 0.6em;">react</a>
       </div>
   </aside>
 
@@ -502,6 +673,20 @@
             
           
         
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
             
           
