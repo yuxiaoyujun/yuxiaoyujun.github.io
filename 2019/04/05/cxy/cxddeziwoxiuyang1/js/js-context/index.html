@@ -25,7 +25,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
 <meta property="article:published_time" content="2019-04-05T04:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-10T22:58:43.677Z">
+<meta property="article:modified_time" content="2023-10-06T05:28:15.589Z">
 <meta property="article:author" content="xue bai">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="lv1">
@@ -234,7 +234,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1689029923677"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1696570095589"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -264,7 +264,7 @@
 <h2 id="三、this"><a href="#三、this" class="headerlink" title="三、this"></a>三、this</h2><p>详见3-1<br>this取值是在<strong>函数执行</strong>的时候决定的，而不是<strong>函数定义</strong>的时候决定的。</p>
 <p>箭头函数的this取值是<strong>取他的上级作用域的值</strong>（静态作用域），普通function的this取值是在<strong>函数执行</strong>时确认的。</p>
 <p><strong>分为以下几种情况：</strong><br>（1）作为对象方法被执行，this指向该对象。<br>（2）class的this表示它当前的实例，在构造函数（函数用new调用）中，this指向要被constructed的新对象。<br>（3）普通函数的this，在调用时才知道this的作用域。<br>（4）箭头函数的this固定指向上级作用域<br>（5）call apply<br>函数内的this和函数在什么环境中定义没有关系，而只和自己的主体有关。</p>
-<p>####call、apply、bind的区别和使用：<br>作用是在一个对象中调用另一个对象的方法和属性。</p>
+<h4 id="call、apply、bind的区别和使用："><a href="#call、apply、bind的区别和使用：" class="headerlink" title="call、apply、bind的区别和使用："></a>call、apply、bind的区别和使用：</h4><p>作用是在一个对象中调用另一个对象的方法和属性。</p>
 <p>call、apply、bind的第一个参数均为需要调用属性或方法的对象，区别是apply的第二个参数为数组，而bind、apply参数不放入数组而是直接列出。</p>
 <p>bing会返回一个函数，执行函数后才改变this，而call、apply会立即执行。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fullname = &#123;</span><br><span class="line">    getFullName (city,country) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstname</span>+<span class="variable language_">this</span>.<span class="property">lastname</span>+<span class="string">&#x27;from&#x27;</span>+country+city</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> name = &#123;</span><br><span class="line">    <span class="attr">firstname</span>: <span class="string">&#x27;bai&#x27;</span>,</span><br><span class="line">    <span class="attr">lastname</span>:<span class="string">&#x27;xue&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -366,7 +366,7 @@
                     <a class="tag-none-link" href="/tags/js/" rel="tag">js</a>, <a class="tag-none-link" href="/tags/lv1/" rel="tag">lv1</a>
                 </div>
                 <div class="pull-date">
-                    <!-- <time datetime="2023-07-10T22:58:43.677Z" itemprop="dateModified">最后编辑：2023-07-11</time> -->
+                    <!-- <time datetime="2023-10-06T05:28:15.589Z" itemprop="dateModified">最后编辑：2023-10-06</time> -->
                 </div>
             </div>
         </footer>
@@ -440,7 +440,7 @@
                 文章
             </span>
             <span class="count">
-                156
+                162
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -467,7 +467,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/zbrush/">zbrush</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/">乱七八糟</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%A7%AF%E7%B4%AF/">奇奇怪怪的积累</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E6%A8%A1/">建模</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B0%B4%E4%BB%99%E8%8A%B1%E8%A7%82%E5%AF%9F%E6%97%A5%E8%AE%B0/">水仙花观察日记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/">程序员的自我修养</a><span class="category-list-count">85</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%83%E5%AD%97/">练字</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E7%94%BB/">绘画</a><span class="category-list-count">30</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/zbrush/">zbrush</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/">乱七八糟</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%A7%AF%E7%B4%AF/">奇奇怪怪的积累</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E6%A8%A1/">建模</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B0%B4%E4%BB%99%E8%8A%B1%E8%A7%82%E5%AF%9F%E6%97%A5%E8%AE%B0/">水仙花观察日记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/">程序员的自我修养</a><span class="category-list-count">91</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%83%E5%AD%97/">练字</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E7%94%BB/">绘画</a><span class="category-list-count">30</span></li></ul>
   </aside>
 
 
@@ -518,6 +518,18 @@
             
           
         
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
             
           

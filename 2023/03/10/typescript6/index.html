@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/logo.png">
+  
+  <title>typescript总结笔记（6）声明文件与声明语句 | 域小鱼的私人地盘</title>
+  <meta name="author" content="xue bai" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="typescript" />
+  
+  <meta name="description" content="一、声明文件与声明语句1. 声明语句 declare概念 declare 关键字用来告诉编译器，某个类型是存在的，可以在当前文件中使用。  declare 只通知编译器某个类型是存在的，不用给出具体实现。  declare 只能用来描述已经存在的变量和数据结构，不能用来声明新的变量和数据结构。  所有 declare 语句都不会出现在编译后的文件里面。   场景declare 关键字可以给">
+<meta property="og:type" content="article">
+<meta property="og:title" content="typescript总结笔记（6）声明文件与声明语句">
+<meta property="og:url" content="https://yuxiaoyujun.github.io/2023/03/10/typescript6/index.html">
+<meta property="og:site_name" content="域小鱼的私人地盘">
+<meta property="og:description" content="一、声明文件与声明语句1. 声明语句 declare概念 declare 关键字用来告诉编译器，某个类型是存在的，可以在当前文件中使用。  declare 只通知编译器某个类型是存在的，不用给出具体实现。  declare 只能用来描述已经存在的变量和数据结构，不能用来声明新的变量和数据结构。  所有 declare 语句都不会出现在编译后的文件里面。   场景declare 关键字可以给">
+<meta property="og:locale">
+<meta property="og:image" content="https://yuxiaoyujun.github.io/images/logo.png">
+<meta property="article:published_time" content="2023-03-10T14:21:13.000Z">
+<meta property="article:modified_time" content="2023-10-07T19:59:17.621Z">
+<meta property="article:author" content="xue bai">
+<meta property="article:tag" content="typescript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yuxiaoyujun.github.io/images/logo.png">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"></script>
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="/vendors/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/banner_dark.png');
+      }
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li>
+                                            
+                                                <a href="/">
+                                            
+                                                
+                                                    <i class="fa fa-home"></i>
+                                                
+                                                首页
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/archives/">
+                                            
+                                                
+                                                    <i class="fa fa-file"></i>
+                                                
+                                                归档
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/friends/">
+                                            
+                                                
+                                                    <i class="fa fa-paw"></i>
+                                                
+                                                链接
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a>
+                                            
+                                                
+                                                    <i class="fa fa-link"></i>
+                                                
+                                                其他
+                                            </a>
+                                            
+                                                <ul class="sub-menu">
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://www.jianshu.com/u/006751bcf229">
+                                                                
+                                                                简书
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://space.bilibili.com/290552481">
+                                                                
+                                                                b站
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://twitter.com/6cq6t78JwKOlHui">
+                                                                
+                                                                推特
+                                                            </a>
+                                                        </li>
+                                                    
+                                                        <li>
+                                                            <a target="_blank" rel="noopener" href="https://www.instagram.com/yuxiaoyu822/">
+                                                                
+                                                                IG
+                                                            </a>
+                                                        </li>
+                                                    
+                                                </ul>
+                                            
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">域小鱼的私人地盘</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>域小鱼的私人地盘</h2> <br />
+                        <span>欢、欢迎你，有缘的陌生人</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="https://yuxiaoyujun.github.io/2023/03/10/typescript6/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">typescript总结笔记（6）声明文件与声明语句</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2023-03-10T14:21:13.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-03-10</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">xue bai</span>
+                </li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~3.15K
+                    
+                    字
+                </li>
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1696708757621"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+            <hr />
+            <div itemprop="articleBody">  <meta name="referrer" content="no-referrer">
+
+<h2 id="一、声明文件与声明语句"><a href="#一、声明文件与声明语句" class="headerlink" title="一、声明文件与声明语句"></a>一、声明文件与声明语句</h2><h3 id="1-声明语句-declare"><a href="#1-声明语句-declare" class="headerlink" title="1. 声明语句 declare"></a>1. 声明语句 <code>declare</code></h3><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li><p>declare 关键字用来告诉编译器，某个类型是存在的，可以在当前文件中使用。</p>
+</li>
+<li><p>declare 只通知编译器某个类型是存在的，不用给出具体实现。</p>
+</li>
+<li><p>declare 只能用来描述已经存在的变量和数据结构，不能用来声明新的变量和数据结构。</p>
+</li>
+<li><p>所有 declare 语句都不会出现在编译后的文件里面。</p>
+</li>
+</ul>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>declare 关键字可以给出外部变量的类型描述，主要场景为下面两个：</p>
+<ul>
+<li><p><strong>用于声明第三方库或模块的类型</strong>：比如说引入第三方npm包时，若他们没有提供<code>.d.ts</code>文件。以<code>jQuery</code>为例，typescript将不知道如何处理jQuery对象，这时可以声明</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// jQuery.d.ts</span></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">let</span> <span class="attr">jQuery</span>: <span class="function">(<span class="params">selector: <span class="built_in">string</span></span>) =&gt;</span> <span class="built_in">any</span></span><br></pre></td></tr></table></figure>
+
+<p>现在，当你在项目中使用 jQuery 时，TypeScript 将知道它的类型信息，以便进行类型检查。</p>
+</li>
+<li><p><strong>与非 TypeScript 代码集成</strong>：有些<code>js</code>库不包含<code>ts</code>代码，也没有声明文件（<code>*.d.ts</code>），需要自己书写声明文件（<code>*.d.ts</code>），此时在声明文件中声明全局变量，让<code>typescript</code>知道这些变量的类型。</p>
+</li>
+</ul>
+<h3 id="可使用declare声明的类型"><a href="#可使用declare声明的类型" class="headerlink" title="可使用declare声明的类型"></a>可使用declare声明的类型</h3><ul>
+<li><p><strong>声明外部变量</strong> <code>declare var</code> 和 <code>declare let</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// *.d.ts</span></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">let</span> <span class="attr">x</span>: <span class="built_in">number</span></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">var</span> <span class="variable language_">document</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">let</span> <span class="attr">y</span>:<span class="built_in">number</span> = <span class="number">1</span> <span class="comment">// 报错，declare 关键字只用来给出类型描述</span></span><br></pre></td></tr></table></figure>
+<p>使用方法：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/*.ts</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;标题&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>**s声明function **<code>declare function</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declare function fn (str:string): void</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>声明class</strong> <code>declare class</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">	<span class="title function_">constructor</span>(<span class="params"></span>): <span class="built_in">void</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="title function_">setInit</span>(): <span class="built_in">string</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">sayHello</span>(): <span class="built_in">void</span></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">getName</span>(<span class="attr">name</span>: <span class="built_in">string</span>): <span class="built_in">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>声明模块和命名空间</strong> <code>declare namespace</code> 和 <code>declare module</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="keyword">namespace</span> <span class="title class_">AnimalLib</span> &#123;</span><br><span class="line">  <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name:<span class="built_in">string</span></span>);</span><br><span class="line">    <span class="title function_">eat</span>():<span class="built_in">void</span>;</span><br><span class="line">    <span class="title function_">sleep</span>():<span class="built_in">void</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">type</span> <span class="title class_">Animals</span> = <span class="string">&#x27;Fish&#x27;</span> | <span class="string">&#x27;Dog&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="variable language_">module</span> <span class="title class_">AnimalLib</span> &#123;</span><br><span class="line">  <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">name:<span class="built_in">string</span></span>);</span><br><span class="line">    <span class="title function_">eat</span>(): <span class="built_in">void</span>;</span><br><span class="line">    <span class="title function_">sleep</span>(): <span class="built_in">void</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">type</span> <span class="title class_">Animals</span> = <span class="string">&#x27;Fish&#x27;</span> | <span class="string">&#x27;Dog&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>**声明js原生属性和方法 ** <code>declare global</code></p>
+<p>为 JavaScript 引擎的原生对象添加属性和方法，可以使用<code>declare global &#123;&#125;</code>语法。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="variable language_">global</span> &#123;</span><br><span class="line">	<span class="keyword">interface</span> <span class="title class_">String</span> &#123;</span><br><span class="line">		<span class="title function_">getLength</span>(): <span class="built_in">number</span>  <span class="comment">// 接口中可以这样来声明方法</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;&#125;;  <span class="comment">// 必须要写，在declare global时必须要告诉typescipt这是一个模块。否则会报错</span></span><br></pre></td></tr></table></figure>
+
+<p>使用：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">a</span>: <span class="built_in">string</span> = <span class="string">&quot;sdfsdf&quot;</span>;</span><br><span class="line">a.<span class="title function_">getLeng</span>();</span><br></pre></td></tr></table></figure>
+
+<p>当然，必须要在<code>tsconfig</code>中的<code>include</code>或<code>files</code>中进行引入。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;include&quot;</span>: [<span class="string">&quot;src/**/*.ts&quot;</span>],  <span class="comment">// 数组，可以使用通配符</span></span><br><span class="line">    <span class="string">&quot;files&quot;</span>: [</span><br><span class="line">      <span class="string">&quot;string.d.ts&quot;</span> <span class="comment">// 数组，必须是具体文件</span></span><br><span class="line">    ],</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>声明文件比较多时，可以使用三斜线指令（下面会说）<br>···<br>/// <reference path="../string.d.ts" /><br>···</p>
+</li>
+<li><p><strong>声明<code>enmu</code></strong> <code>declare enmu</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="title class_">Color</span> &#123;</span><br><span class="line">	<span class="title class_">Red</span>,</span><br><span class="line">	<span class="title class_">Blue</span>,</span><br><span class="line">	<span class="title class_">Green</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-声明文件-d-ts"><a href="#2-声明文件-d-ts" class="headerlink" title="2.  声明文件 .d.ts"></a>2.  声明文件 <code>.d.ts</code></h3><h3 id="2-1-概念"><a href="#2-1-概念" class="headerlink" title="2.1 概念"></a>2.1 概念</h3><p>一般来说，声明语句会被放到一个单独的文件（<code>*.d.ts</code>）中，这就是声明文件。</p>
+<h3 id="2-2-第三方声明文件"><a href="#2-2-第三方声明文件" class="headerlink" title="2.2 第三方声明文件"></a>2.2 第三方声明文件</h3><p>第三方库一般提供了声明文件，如<code>jQuery</code>。安装第三方声明文件的方法是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install @types/xxx --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>如jQuery的声明文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install @types/jquery --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>一般来说<code>typescript</code>可以自动识别<code>@types/</code> 的声明文件并加载，但如果官方未提供声明文件，但社区有提供，此时想更改编译选项，可以在<code>tscofig</code>中配置：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;compilerOptions&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;typeRoots&quot;</span>: [<span class="string">&quot;./typings&quot;</span>], <span class="comment">// 社区下载的非官方声明文件</span></span><br><span class="line">    <span class="string">&quot;types&quot;</span> : [<span class="string">&quot;jquery&quot;</span>] <span class="comment">// 引入node_modules/**/@types对应的官方文件，一般不比写</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>补充一点ts查找声明文件的顺序：<ul>
+<li>首先会查找 typeRoots 中指定的目录，以查找自定义的声明文件。</li>
+<li>然后，会查找 types 中指定的声明文件，这通常是用于引入官方声明文件或项目内部的自定义声明文件。</li>
+<li>最后，会继续查找 node_modules/@types 目录下的官方声明文件。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-项目自动生成声明文件"><a href="#2-3-项目自动生成声明文件" class="headerlink" title="2.3 项目自动生成声明文件"></a>2.3 项目自动生成声明文件</h3><p><code>tsconfig</code>中，配置<code>&quot;declaration&quot;: true</code> ，编译 时会 自动生成 。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;compilerOptions&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;declaration&quot;</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或命令行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc --declaration</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-内置声明文件"><a href="#2-4-内置声明文件" class="headerlink" title="2.4 内置声明文件"></a>2.4 内置声明文件</h3><p>在安装<code>typescript</code>的文件夹内（一般是项目的<code>node_modules/typescript</code>中），会有<code>lib</code>文件夹，提供了一些常见的声明文件。</p>
+<p><img src="/images/image-20231008034339747.png"></p>
+<p>可以在<code>tsconfig</code>中启用</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;compilerOptions&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;lib&quot;</span>: [<span class="string">&quot;dom&quot;</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-自己书写声明文件"><a href="#2-5-自己书写声明文件" class="headerlink" title="2.5 自己书写声明文件"></a>2.5 自己书写声明文件</h3><p>如果既没有官方声明文件，也没有第三方社区声明文件，那只好自己写了。</p>
+<p>declare在上面👆🏻</p>
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3></div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "https://yuxiaoyujun.github.io/2023/03/10/typescript6/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "https://yuxiaoyujun.github.io/2023/03/10/typescript6/";
+            const title         = "「typescript总结笔记（6）声明文件与声明语句」";
+            const excerpt       = `  
+
+一、声明文件与声明语句1. 声明语句 declare概念
+declare 关键字用来告诉编译器，某个类型是存在的，可以在当前文件中使用。
+
+declare 只通知编译器某个类型是存在的，不用给出具体实现。
+
+declare 只...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/typescript/" rel="tag">typescript</a>
+                </div>
+                <div class="pull-date">
+                    <!-- <time datetime="2023-10-07T19:59:17.621Z" itemprop="dateModified">最后编辑：2023-10-08</time> -->
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" typescript总结笔记（3）装饰器" href="/2023/03/09/typescript3/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" typescript总结笔记（8）常见的面试题" href="/2023/03/11/typescript8/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+        <link rel="stylesheet" href="/vendors/gitalk@1.7.2/dist/gitalk.css"></script>
+<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            console.log('Gitalk loading...');
+            const gitalk = new Gitalk(Object.assign({
+                id: '/2023/03/10/typescript6/',
+                path: '/2023/03/10/typescript6/'
+            }, JSON.parse('{"clientID":"628850ddd59360af6fad","clientSecret":"f8dd6f68eace9e06f1a51496ff85dc8a4f48cef1","repo":"yuxiaoyujun.github.io","owner":"yuxiaoyujun","admin":["yuxiaoyujun"],"distractionFreeMode":false}')));
+
+            gitalk.render('gitalk-container');
+        }
+        if (typeof Gitalk === 'undefined') {
+            const src = '/vendors/gitalk@1.7.2/dist/gitalk.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.jpg" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">爱生活爱敲代码爱画画爱建模（或许吧）<br />有一颗自洽的灵魂<br>都是自己无聊的碎碎念<br>所以不要看我，我会不好意思<br><br>超级擅长blender<br>想交一个能一起联机建模的朋友<br><br>域名的意思是棒棒的铲屎官<br>不是笨笨的铲屎官噢谢谢你<br><br>没做懒加载没做分页没做代码压缩<br />所以别用流量进来</p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                162
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                10
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                39
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/zbrush/">zbrush</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/">乱七八糟</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%A7%AF%E7%B4%AF/">奇奇怪怪的积累</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E6%A8%A1/">建模</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B0%B4%E4%BB%99%E8%8A%B1%E8%A7%82%E5%AF%9F%E6%97%A5%E8%AE%B0/">水仙花观察日记</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/">程序员的自我修养</a><span class="category-list-count">91</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%83%E5%AD%97/">练字</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%98%E7%94%BB/">绘画</a><span class="category-list-count">30</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/Midjourney/" style="font-size: 0.7em;">Midjourney</a> <a href="/tags/ai%E7%BB%98%E7%94%BB/" style="font-size: 0.6em;">ai绘画</a> <a href="/tags/api/" style="font-size: 0.6em;">api</a> <a href="/tags/axios/" style="font-size: 0.6em;">axios</a> <a href="/tags/babel/" style="font-size: 0.6em;">babel</a> <a href="/tags/blender/" style="font-size: 0.73em;">blender</a> <a href="/tags/css/" style="font-size: 0.68em;">css</a> <a href="/tags/github/" style="font-size: 0.6em;">github</a> <a href="/tags/js/" style="font-size: 0.78em;">js</a> <a href="/tags/jsdelivr/" style="font-size: 0.6em;">jsdelivr</a> <a href="/tags/lv1/" style="font-size: 0.8em;">lv1</a> <a href="/tags/lv2/" style="font-size: 0.73em;">lv2</a> <a href="/tags/lv3/" style="font-size: 0.6em;">lv3</a> <a href="/tags/node/" style="font-size: 0.75em;">node</a> <a href="/tags/npm/" style="font-size: 0.65em;">npm</a> <a href="/tags/pr/" style="font-size: 0.6em;">pr</a> <a href="/tags/prettier/" style="font-size: 0.63em;">prettier</a> <a href="/tags/react/" style="font-size: 0.6em;">react</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2023/08/08/diary-0808/"><i class="fa  fa-book"></i> 【2023-08-08】拿水彩画了个锤子</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2023/08/07/PCCS/"><i class="fa  fa-book"></i> 【PCCS】 色调图（翻译）</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2023/07/30/diary-0730/"><i class="fa  fa-book"></i> 【2023-07-30】试试用最便宜的材料来体验画水彩</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2023/07/15/wzq/"><i class="fa  fa-book"></i> 【乱七八糟】五子棋ai的博弈树</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2023/07/14/diary-0714/"><i class="fa  fa-book"></i> 【2023-07-14】诈骗手段真是层出不穷吖！</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                            <li>
+                                <a target="_blank" rel="nofollow" href="https://github.com/yuxiaoyujun">
+                                    
+                                        <i class="fa fa-github"></i>
+                                    
+                                </a>
+                            </li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 域小鱼的私人地盘 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>这里视频需要科学上网，电脑端访问食用更佳噢~</li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/yuxiaoyujun" target="_blank">YUXIAOYUJUN</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by xue bai.</li>
+                        </div>
+                        <!-- <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hex</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div> -->
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="snow-switch">
+                        <span class="fa fa-snowflake-o"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async src="/js/snow.min.js"></script>
+    </div>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="/vendors/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <div id="aplayer"></div>
+    <script>
+    $(() => {
+        let music = "/music/laxh.mp3"
+        let musicList = [{
+            name: '恋愛サーキュレーション',
+            artist: '花澤香菜',
+            url: music,
+            cover: "/images/laxh.jpeg",
+            lrc: "/music/laxh.lrc",
+            theme: '#ebd0c2'
+        }]
+        new APlayer({            
+            fixed: true,
+            container: document.getElementById('aplayer'),
+            order: 'random',
+            lrcType: 3,
+            audio: musicList
+            // audio: data
+        });
+        // $.ajax({
+        //     type:"get",
+        //     url:"/music/laxh.mp3",
+        //     dataType:"json",
+        //     success: function(data){
+        //         new APlayer({
+        //             container: document.getElementById('aplayer'),
+        //             fixed: true,
+        //             order: 'random',
+        //             lrcType: 3,
+        //             audio: data
+        //         });
+        //     }
+        // });
+    });
+    // 添加禁止复制的功能（代码复制功能保留了），只有我本地可以复制
+    // 禁止右键菜单
+    if (document.domain === "bbdcsg.love") {
+        document.oncontextmenu = function(){ return false; };
+        // 禁止文字选择
+        document.onselectstart = function(){ return false; };
+        // 禁止复制
+        document.oncopy = function(){ return false; };
+        // 禁止剪切
+        document.oncut = function(){ return false; };
+    }
+
+    </script>
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="/vendors/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
